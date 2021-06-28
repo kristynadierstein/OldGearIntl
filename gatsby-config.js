@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
+    `gatsby-plugin-image`,
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-prismic',
@@ -35,6 +36,10 @@ module.exports = {
         // linkResolver: () => prismicLinkResolver,
         // PrismJS highlighting for labels and slices
         htmlSerializer: () => prismicHtmlSerializer,
+        shouldDownloadImage: () => true,
+        schemas: {
+          navigation: require('./src/schemas/navigation.json'),
+        },
       },
     },
     'gatsby-plugin-lodash',

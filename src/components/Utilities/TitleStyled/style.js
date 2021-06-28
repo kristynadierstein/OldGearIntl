@@ -1,0 +1,114 @@
+  import styled from "@emotion/styled"
+  import theme from "../../../utils/styles/theme"
+
+  export const TitleStyled = styled.span`
+    text-transform: ${({ uppercase }) => (uppercase ? "uppercase" : "none")};
+    position: relative;
+    margin-bottom: 0px;
+    display: block;
+
+    &.Title__displayNone {
+      display: none;
+    }
+
+    ${({ type }) => {
+      switch (type) {
+        case "h1":
+          return `
+          font-size: ${theme.fonts.xxl_small};
+          `
+        case "h1-secondary":
+          return `
+              font-size: ${theme.fonts.xs};
+            `
+        case "h1-secondary-large":
+          return `
+                font-size: ${theme.fonts.xl_small};
+              `
+
+        case "h2":
+          return `
+            font-size: ${theme.fonts.xs};
+            `
+        case "h3":
+          return `
+              font-size: ${theme.fonts.xl_medium};
+              line-height: 1.1;
+            `
+        case "h4":
+          return `
+              font-size: ${theme.fonts.xs};
+            `
+        case "h5":
+          return `
+          font-size: ${theme.fonts.s};
+          `
+        case "h5-secondary":
+          return `
+            font-size: ${theme.fonts.s};
+            `
+        case "h6":
+          return `
+                font-size: ${theme.fonts.s};
+                `
+        default:
+          //
+          // Default Font Style
+          //
+          return `
+              font-size: ${theme.fonts.xl_medium};
+          `
+      }
+    }};
+
+    @media (min-width: ${theme.breakpoints.md}) {
+      ${({ type }) => {
+        switch (type) {
+          case "h1":
+            return `
+              font-size: ${theme.fonts.xxxl_large};
+            `
+          case "h1-secondary":
+            return `
+              font-size: ${theme.fonts.xxs};
+            `
+          case "h1-secondary-large":
+            return `
+                font-size: ${theme.fonts.xxxl_small};
+              `
+
+          case "h2":
+            return `
+              font-size: ${theme.fonts.xl}; 
+            `
+          case "h3":
+            return `
+              font-size: ${theme.fonts.xxl_large}; 
+            `
+          case "h4":
+            return `
+              font-size: ${theme.fonts.xl_small}; 
+            `
+          case "h5":
+            return `
+              font-size: ${theme.fonts.l};
+              `
+          case "h5-secondary":
+            return `
+                  font-size: ${theme.fonts.l_secondary};
+                  `
+          case "h6":
+            return `
+            font-size: ${theme.fonts.xxs};
+            `
+          default:
+            //
+            // Default Font Style
+            //
+            return `
+              font-size: ${theme.fonts.xxl_large}; 
+            `
+        }
+      }};
+    }
+  `

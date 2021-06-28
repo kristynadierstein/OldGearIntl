@@ -11,6 +11,7 @@ import '@reach/skip-nav/styles.css'
 
 import Footer from './Footer'
 import SkipNavLink from './SkipNavLink'
+import Navigation from '../components/Navigation'
 import { theme, reset } from '../styles'
 import i18n from '../../config/i18n'
 
@@ -77,6 +78,7 @@ const LocaleSwitcher = styled.div`
   top: 0;
   right: 0;
   padding: 1rem;
+  font-size: 10px;
 `
 
 const LocaleContext = React.createContext()
@@ -95,10 +97,6 @@ const Layout = ({ children, pageContext: { locale } }) => {
           <Global styles={globalStyle} />
           <SkipNavLink />
           <LocaleSwitcher data-name="locale-switcher">
-            <Link hrefLang="de-de" to="/de">
-              DE
-            </Link>{' '}
-            /{' '}
             <Link hrefLang="en-us" to="/">
               EN
             </Link>
@@ -106,11 +104,13 @@ const Layout = ({ children, pageContext: { locale } }) => {
             <Link hrefLang="fr-fr" to="/fr">
               FR
             </Link>
+            /{' '}
+            <Link hrefLang="de-de" to="/de">
+              DE
+            </Link>{' '}
           </LocaleSwitcher>
+          <Navigation />
           {children}
-          <Footer>
-            <div dangerouslySetInnerHTML={{ __html: footer }} />
-          </Footer>
         </>
       </ThemeProvider>
     </LocaleContext.Provider>
@@ -139,6 +139,6 @@ const query = graphql`
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired,
-  }).isRequired,
+    locale: PropTypes.string.isRequired
+  }).isRequired
 }
