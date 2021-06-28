@@ -20,6 +20,11 @@ export const MenuItemsContainer = styled.div`
     font-style: normal;
     font-weight: 500;
     // font-color: white;
+    color: #8C120F;
+  }
+
+  a:hover{
+    text-decoration: none;
   }
 `
 
