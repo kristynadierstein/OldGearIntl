@@ -3,11 +3,11 @@ require('dotenv').config({
 })
 
 const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
-const prismicLinkResolver = require('./src/gatsby/linkResolver')
+// const prismicLinkResolver = require('./src/gatsby/linkResolver')
 
 const website = require('./config/website')
 
-const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+const pathPrefix = website.pathPrefix === '/' ? '/' : website.pathPrefix
 
 module.exports = {
   /* General Information */
@@ -29,10 +29,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'gatsby-starter-prismic',
+        repositoryName: 'old-gear',
         accessToken: `${process.env.API_KEY}`,
         // Get the correct URLs in blog posts
-        linkResolver: () => prismicLinkResolver,
+        // linkResolver: () => prismicLinkResolver,
         // PrismJS highlighting for labels and slices
         htmlSerializer: () => prismicHtmlSerializer,
       },

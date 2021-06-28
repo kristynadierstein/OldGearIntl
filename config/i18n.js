@@ -2,7 +2,6 @@ const website = require('./website')
 
 module.exports = {
   'de-de': {
-    default: true,
     path: 'de',
     locale: 'de-de',
     siteLanguage: 'de',
@@ -21,11 +20,31 @@ module.exports = {
     allCategories: 'Alle Kategorien',
     entries: 'Einträge',
   },
-  'en-gb': {
+  'en-us': {
+    default: true,
     path: 'en',
-    locale: 'en-gb',
+    locale: 'en-us',
     siteLanguage: 'en',
     ogLang: 'en_US',
+    defaultTitle: website.title,
+    defaultTitleAlt: website.titleAlt,
+    defaultDescription: website.description,
+    headline: website.headline,
+    category: 'Category',
+    categories: 'Categories',
+    was: 'was',
+    were: 'were',
+    tagged: 'tagged with',
+    recent: 'Recent',
+    projects: 'projects',
+    allCategories: 'All categories',
+    entries: 'entries',
+  },
+  'fr-fr': {
+    path: 'fr',
+    locale: 'fr-fr',
+    siteLanguage: 'fr',
+    ogLang: 'fr_FR',
     defaultTitle: website.title,
     defaultTitleAlt: website.titleAlt,
     defaultDescription: website.description,
