@@ -55,7 +55,7 @@ const Navigation = props => {
 
   const i18n = lang.i18n[lang.locale]
   console.log(i18n)
-  const navigation = data.navigation.nodes.filter(node => node.lang === i18n.locale).map(r => r.data)
+  // const navigation = data.navigation.nodes.filter(node => node.lang === i18n.locale).map(r => r.data)
 
   const navigationQuery = getQuery(['navigation', 'nodes', 0, 'data'], data)
   console.log(navigationQuery)

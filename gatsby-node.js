@@ -6,10 +6,10 @@ const { replaceTrailing, localizedSlug, replaceBoth, wrapper } = require('./src/
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
-  // Only create one 404 page at /404.html
-  if (page.path.includes('404')) {
-    return
-  }
+  // // Only create one 404 page at /404.html
+  // if (page.path.includes('404')) {
+  //   return
+  // }
 
   // First delete the pages so we can re-create them
   deletePage(page)
@@ -23,15 +23,15 @@ exports.onCreatePage = ({ page, actions }) => {
 
     // Create the "slugs" for the pages. Unless default language, add prefix àla "/en"
     const localizedPath = locales[lang].default ? page.path : `${locales[lang].path}${page.path}`
-    console.log(lang);
+    console.log(page)
 
     return createPage({
       ...page,
       path: localizedPath,
       context: {
         locale: lang,
-        name,
-      },
+        name
+      }
     })
   })
 }

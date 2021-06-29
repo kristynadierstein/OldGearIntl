@@ -13,6 +13,8 @@ const Index = ({ pageContext: { locale }, location }) => {
   const lang = React.useContext(LocaleContext)
   const i18n = lang.i18n[lang.locale]
 
+  console.log(i18n);
+
   return (
     <>
       <SEO pathname={location.pathname} locale={locale} />
