@@ -6,6 +6,7 @@ import { useMediaQuery } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import LocaleContext from '../../context/LocaleProvider'
+import StyleContext from '../../context/StyleProvider'
 import { getQuery } from '../../utils/functions/getQuery'
 import { NavigationContainer, MenuItemsContainer, Logo, BurgerMenuContainer } from './style'
 import Title from '../Utilities/TitleStyled'
@@ -40,7 +41,10 @@ const Navigation = props => {
             menu_item_6 {
               text
             }
-            navigation_logo {
+            navigation_logo_white {
+              url
+            }
+            navigation_logo_red {
               url
             }
           }
@@ -51,57 +55,57 @@ const Navigation = props => {
 
   console.log(data)
   const lang = useContext(LocaleContext)
+  const styleContext = useContext(StyleContext)
   const [openMenu, setMenuOpen] = useState(false)
 
   const i18n = lang.i18n[lang.locale]
-  console.log(i18n)
-  // const navigation = data.navigation.nodes.filter(node => node.lang === i18n.locale).map(r => r.data)
+  const navigation = data.navigation.nodes.filter(node => node.lang === i18n.locale).map(r => r.data)
 
   const navigationQuery = getQuery(['navigation', 'nodes', 0, 'data'], data)
-  console.log(navigationQuery)
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('769'))
 
   const handleOpen = () => {
     setMenuOpen(!openMenu)
   }
+  const color = styleContext?.colorWhite
 
   return isDesktop ? (
     <NavigationContainer>
-      <MenuItemsContainer>
+      <MenuItemsContainer fontColor={color}>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_1.text}
+            {navigation.[0].menu_item_1.text}
           </Title>
         </LocalizedLink>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_2.text}
+            {navigation.[0].menu_item_2.text}
           </Title>
         </LocalizedLink>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_3.text}
+            {navigation.[0].menu_item_3.text}
           </Title>
         </LocalizedLink>
       </MenuItemsContainer>
       <Logo>
-        <img src={navigationQuery.navigation_logo.url} alt="" style={{ width: '150px' }} />
+        <img src={styleContext?.colorWhite === 1 ? navigationQuery.navigation_logo_red.url : navigationQuery.navigation_logo_white.url} alt="" style={{ width: '150px' }} />
       </Logo>
-      <MenuItemsContainer>
+      <MenuItemsContainer fontColor={color}>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_4.text}
+            {navigation.[0].menu_item_4.text}
           </Title>
         </LocalizedLink>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_5.text}
+            {navigation.[0].menu_item_5.text}
           </Title>
         </LocalizedLink>
         <LocalizedLink to="/">
           <Title type="h6" uppercase>
-            {navigationQuery.menu_item_6.text}
+            {navigation.[0].menu_item_6.text}
           </Title>
         </LocalizedLink>
       </MenuItemsContainer>

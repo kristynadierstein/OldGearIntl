@@ -9,9 +9,10 @@ import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
 import '@reach/skip-nav/styles.css'
 
-import Footer from './Footer'
+
 import SkipNavLink from './SkipNavLink'
 import Navigation from '../components/Navigation'
+import Footer from '../components/Footer/index.js'
 import { theme, reset } from '../styles'
 import i18n from '../../config/i18n'
 
@@ -79,16 +80,12 @@ const LocaleSwitcher = styled.div`
   right: 0;
   padding: 1rem;
   font-size: 10px;
+  z-index: 1000000;
 `
 
 const LocaleContext = React.createContext()
 
 const Layout = ({ children, pageContext: { locale } }) => {
-  const data = useStaticQuery(query)
-  const footer = data.allPrismicHomepage.edges
-    .filter(edge => edge.node.lang === locale)
-    .map(r => r.node.data.footer.html)
-    .toString()
 
   return (
     <LocaleContext.Provider value={{ locale, i18n }}>
@@ -111,6 +108,7 @@ const Layout = ({ children, pageContext: { locale } }) => {
           </LocaleSwitcher>
           <Navigation />
           {children}
+          <Footer />
         </>
       </ThemeProvider>
     </LocaleContext.Provider>
@@ -119,22 +117,6 @@ const Layout = ({ children, pageContext: { locale } }) => {
 
 export { LocaleContext, Layout }
 
-const query = graphql`
-  query LayoutQuery {
-    allPrismicHomepage {
-      edges {
-        node {
-          lang
-          data {
-            footer {
-              html
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
