@@ -17,7 +17,7 @@ export const BurgerMenu = ({ openMenu, className }) => {
               <g>
                 <g>
                   <path
-                    stroke={!openMenu ? '#0B1F30' : '#8C120F'}
+                    stroke={!openMenu ? 'white' : '#8C120F'}
                     d={openMenu ? 'M9 2L46.3876 39.3876' : 'M0.499 0.5L53.373 0.5'}
                     transform="translate(-1524 -58) translate(1525.36 59)"
                     id="line1"
@@ -31,7 +31,7 @@ export const BurgerMenu = ({ openMenu, className }) => {
                     style={{ display: openMenu ? 'none' : 'block' }}
                   />
                   <path
-                    stroke={!openMenu ? '#0B1F30' : '#8C120F'}
+                    stroke={!openMenu ? 'white' : '#8C120F'}
                     d={openMenu ? 'M9 39.3876L46.3876 2.00001' : 'M0.499 39.5L53.373 39.5'}
                     transform="translate(-1524 -58) translate(1525.36 59)"
                     id="line3"
