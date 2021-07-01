@@ -6,9 +6,20 @@
     position: relative;
     margin-bottom: 0px;
     display: block;
+    color: ${(props => props.whiteTitle ? "#FFF" : 'rgba(11,31,48,1)')};
 
     &.Title__displayNone {
       display: none;
+    }
+
+    &:before {
+      content: '';
+      color: white;
+      border: ${(props => props.withTitleDecoration ? "1px solid white" : '0px')};
+      width: ${(props => props.withTitleDecoration ? "20px" : '0px')};
+      position: absolute;
+      left: -20px;
+      bottom: 12px;
     }
 
     ${({ type }) => {

@@ -14,6 +14,7 @@ const Title = (props, ref) => {
     style,
     className,
     whiteTitle,
+    withTitleDecoration
   } = props
 
   const textProps = {
@@ -26,6 +27,7 @@ const Title = (props, ref) => {
     style: style ? style : null,
     className: `${className ? className : ''} Title ${type ? type : ''}`,
     whiteTitle,
+    withTitleDecoration
   }
 
   return (

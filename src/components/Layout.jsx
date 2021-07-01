@@ -7,6 +7,8 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { ThemeProvider } from 'emotion-theming'
+import { useMediaQuery } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles'
 import '@reach/skip-nav/styles.css'
 
 
@@ -80,12 +82,15 @@ const LocaleSwitcher = styled.div`
   right: 0;
   padding: 1rem;
   font-size: 10px;
-  z-index: 1000000;
+  z-index: 100000000;
 `
 
 const LocaleContext = React.createContext()
 
 const Layout = ({ children, pageContext: { locale } }) => {
+
+  const theme = useTheme()
+  const isDesktop = useMediaQuery(theme.breakpoints.up('769'))
 
   return (
     <LocaleContext.Provider value={{ locale, i18n }}>
@@ -93,6 +98,8 @@ const Layout = ({ children, pageContext: { locale } }) => {
         <>
           <Global styles={globalStyle} />
           <SkipNavLink />
+
+          {isDesktop ? (
           <LocaleSwitcher data-name="locale-switcher">
             <Link hrefLang="en-us" to="/">
               EN
@@ -106,6 +113,7 @@ const Layout = ({ children, pageContext: { locale } }) => {
               DE
             </Link>{' '}
           </LocaleSwitcher>
+          ) : (<></>)}
           <Navigation />
           {children}
           <Footer />

@@ -1,5 +1,29 @@
 import styled from "@emotion/styled";
 import { theme } from "../../styles";
+import { keyframes, css } from '@emotion/core';
+
+
+const reveal1 = () => css`
+  ${keyframes`
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  `} 0.5s ease forwards;
+`
+
+const reveal2 = () => css`
+  ${keyframes`
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  `} 0.7s reverse forwards;
+`
 
 export const NavigationContainer = styled.div`
   display: flex;
@@ -7,10 +31,11 @@ export const NavigationContainer = styled.div`
   justify-content: center;
   font-family: "Satoshi";
   margin: 40px auto;
+  margin-top: 0px;
   position: fixed;
   top: 0;
   z-index: 1000000;
- 
+  background-color: rgba(250, 250, 250, .5);
 `
 
 export const MenuItemsContainer = styled.div`
@@ -18,16 +43,34 @@ export const MenuItemsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-top: 26px;
 
 
   a {
     font-style: normal;
-    font-weight: 500;
-    color: ${props => (props.fontColor === 1 ? '#8c120f' : 'white')};
+    font-weight: 400;
+    color: white;
+    position: relative;
+
+    ::before {
+      content: "";
+      width: 0%;
+      height: 1px;
+      background-color: ${theme.colors.primary};
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   a:hover {
     text-decoration: none;
+
+  }
+
+  a:hover::before {
+    animation: ${reveal1};
+    transform-origin: right;
   }
 `
 

@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import StyleContext from '../../context/StyleProvider'
 import HeroSlider, { Slide, ButtonsNav, Nav, OverlayContainer } from 'hero-slider'
 import SliderWrapper from './SliderWrapper'
+import Text from "../Utilities/TextStyled"
+import Title from "../Utilities/TitleStyled"
+
 
 const carHunting = 'https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg'
 const hvitserkur = 'https://res.cloudinary.com/kristynadierstein/image/upload/v1625008741/OGLogistics/shaah-shahidh--subrrYxv8A-unsplash_ypd042.jpg'
@@ -31,7 +34,7 @@ const ZoomSlider = props => {
     >
       <OverlayContainer>
               <SliderWrapper>
-                <p>Hello</p>
+                <Title></Title>
               </SliderWrapper>
             </OverlayContainer>
 

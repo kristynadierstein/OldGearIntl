@@ -40,6 +40,7 @@
     "consistent-return": 0,
     "import": 0,
     "func-names": 0,
+    "react/require-default-props": 0,
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "space-before-function-paren": 0,
@@ -51,6 +52,7 @@
     "react/prefer-stateless-function": 0,
     "react/no-unescaped-entities": 0,
     "jsx-a11y/accessible-emoji": 0,
+    "react/destructuring-assignment": 0,
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [
       1,
@@ -60,7 +62,7 @@
     ],
     "quotes": [
       2,
-      "single",
+      "double",
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
@@ -71,8 +73,11 @@
       "error",
       {
         "semi": false,
-        "singleQuote": true,
+        "singleQuote": false,
         "printWidth": 120
+      },
+      {
+        "usePrettierrc": false
       }
     ],
     "jsx-a11y/href-no-hash": "off",

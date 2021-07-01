@@ -9,9 +9,10 @@ import LocaleContext from '../../context/LocaleProvider'
 import StyleContext from '../../context/StyleProvider'
 import { getQuery } from '../../utils/functions/getQuery'
 import { NavigationContainer, MenuItemsContainer, Logo, BurgerMenuContainer } from './style'
-import Title from '../Utilities/TitleStyled'
+import Text from '../Utilities/TextStyled'
 import LocalizedLink from '../LocalizedLink'
 import { BurgerMenu } from '../Icons/Hamburger'
+import FlyoutMenu from "../FlyoutMenu"
 
 const Navigation = props => {
   const data = useStaticQuery(graphql`
@@ -70,50 +71,55 @@ const Navigation = props => {
   }
   const color = styleContext?.colorWhite
 
-  return isDesktop ? (
+  return (
+    isDesktop ? (
     <NavigationContainer>
       <MenuItemsContainer fontColor={color}>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_1.text}
-          </Title>
+          </Text>
         </LocalizedLink>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_2.text}
-          </Title>
+          </Text>
         </LocalizedLink>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_3.text}
-          </Title>
+          </Text>
         </LocalizedLink>
       </MenuItemsContainer>
       <Logo>
-        <img src={styleContext?.colorWhite === 1 ? navigationQuery.navigation_logo_red.url : navigationQuery.navigation_logo_white.url} alt="" style={{ width: '150px' }} />
+        <img src={navigationQuery.navigation_logo_red.url} alt="" style={{ width: '150px' }} />
       </Logo>
       <MenuItemsContainer fontColor={color}>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_4.text}
-          </Title>
+          </Text>
         </LocalizedLink>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_5.text}
-          </Title>
+          </Text>
         </LocalizedLink>
         <LocalizedLink to="/">
-          <Title type="h6" uppercase>
+          <Text type="primary-small" uppercase className='menu-items'>
             {navigation.[0].menu_item_6.text}
-          </Title>
+          </Text>
         </LocalizedLink>
       </MenuItemsContainer>
     </NavigationContainer>
   ) : (
+    <>
     <BurgerMenuContainer onClick={handleOpen} openMenu={openMenu}>
       <BurgerMenu openMenu={openMenu}  />
     </BurgerMenuContainer>
+    <FlyoutMenu openMenu={openMenu} query={navigation} setMenuOpen={setMenuOpen}/>
+    </>
+  )
   )
 }
 
