@@ -89,7 +89,7 @@ const LocaleContext = React.createContext()
 const Layout = ({ children, pageContext: { locale } }) => {
 
   const theme = useTheme()
-  const isDesktop = useMediaQuery(theme.breakpoints.up('769'))
+  const isDesktop = useMediaQuery(theme.breakpoints.up('900'))
 
   return (
     <LocaleContext.Provider value={{ locale, i18n }}>

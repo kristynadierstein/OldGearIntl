@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { theme } from "../../styles";
-import { keyframes, css } from '@emotion/core';
-
+import { keyframes, css } from "@emotion/core";
 
 const reveal1 = () => css`
   ${keyframes`
@@ -12,7 +11,7 @@ const reveal1 = () => css`
       width: 100%;
     }
   `} 0.5s ease forwards;
-`
+`;
 
 const reveal2 = () => css`
   ${keyframes`
@@ -23,7 +22,7 @@ const reveal2 = () => css`
       transform: scaleX(1);
     }
   `} 0.7s reverse forwards;
-`
+`;
 
 export const NavigationContainer = styled.div`
   display: flex;
@@ -35,8 +34,8 @@ export const NavigationContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 1000000;
-  background-color: rgba(250, 250, 250, .5);
-`
+  background-color: rgba(250, 250, 250, 0.5);
+`;
 
 export const MenuItemsContainer = styled.div`
   width: 40%;
@@ -44,7 +43,6 @@ export const MenuItemsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   padding-top: 26px;
-
 
   a {
     font-style: normal;
@@ -65,30 +63,51 @@ export const MenuItemsContainer = styled.div`
 
   a:hover {
     text-decoration: none;
-
   }
 
   a:hover::before {
     animation: ${reveal1};
     transform-origin: right;
   }
-`
+`;
 
 export const Logo = styled.div`
-  img {
-    margin: 0 80px;
+  @media (max-width: ${theme.breakpoints.m}) {
+    width: 80px;
+    position: absolute;
+    top: 13px;
+    right: 30px;
+    z-index: 100000;
   }
-`
+
+  img {
+    @media (min-width: ${theme.breakpoints.m}) {
+      margin: 0 80px;
+    }
+  }
+`;
 export const BurgerMenuContainer = styled.div`
   width: initial;
   height: initial;
   cursor: pointer;
-  margin: 20px;
 
   @media (max-width: ${theme.breakpoints.m}) {
-    width: 38px;
-    height: 28px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000000000000;
+    width: 100%;
+    background-color: white;
+    height: 70px;
+}
+
+    #burger-menu {
+      margin-bottom: 0;
+      position: absolute;
+      z-index: 100000000;
+      top: 20px;
+      left: 20px;
+    }
   }
 
   svg {
@@ -97,4 +116,8 @@ export const BurgerMenuContainer = styled.div`
       height: 28px;
     }
   }
-`
+
+  img {
+    width: 80px;
+  }
+`;

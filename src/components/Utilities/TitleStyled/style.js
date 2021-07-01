@@ -7,6 +7,7 @@
     margin-bottom: 0px;
     display: block;
     color: ${(props => props.whiteTitle ? "#FFF" : 'rgba(11,31,48,1)')};
+    font-weight: 500;
 
     &.Title__displayNone {
       display: none;
@@ -19,7 +20,11 @@
       width: ${(props => props.withTitleDecoration ? "20px" : '0px')};
       position: absolute;
       left: -20px;
-      bottom: 12px;
+      bottom: 5px;
+
+      @media (max-width: ${theme.breakpoints.m}) {
+        bottom: 3px;
+      }
     }
 
     ${({ type }) => {

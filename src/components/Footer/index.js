@@ -68,7 +68,7 @@ const Footer = props => {
   console.log("footer", footer)
   return (
     <StyledFooterContainer>
-      <Title whiteTitle withTitleDecoration>
+      <Title as='h2' whiteTitle withTitleDecoration>
         {footer?.[0].heading?.text}
       </Title>
       <AddressContainer>

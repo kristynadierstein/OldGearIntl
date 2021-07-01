@@ -11,6 +11,14 @@ background-color: ${theme.colors.bg};
 
 .copyright-text {
   margin-top: 40px;
+  text-align: center;
+}
+
+.Title {
+  margin-bottom: 40px;
+
+  @media (max-width: ${theme.breakpoints.m}) {
+  }
 }
 
 `

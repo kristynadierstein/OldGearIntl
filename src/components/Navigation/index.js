@@ -64,7 +64,7 @@ const Navigation = props => {
 
   const navigationQuery = getQuery(['navigation', 'nodes', 0, 'data'], data)
   const theme = useTheme()
-  const isDesktop = useMediaQuery(theme.breakpoints.up('769'))
+  const isDesktop = useMediaQuery(theme.breakpoints.up('900'))
 
   const handleOpen = () => {
     setMenuOpen(!openMenu)
@@ -116,6 +116,9 @@ const Navigation = props => {
     <>
     <BurgerMenuContainer onClick={handleOpen} openMenu={openMenu}>
       <BurgerMenu openMenu={openMenu}  />
+      <Logo>
+        <img src={navigationQuery.navigation_logo_red.url} alt=""  />
+      </Logo>
     </BurgerMenuContainer>
     <FlyoutMenu openMenu={openMenu} query={navigation} setMenuOpen={setMenuOpen}/>
     </>
