@@ -32,7 +32,6 @@ const globalStyle = css`
   }
   body {
     color: ${theme.colors.greyDarker};
-    background-color: ${theme.colors.bg};
   }
   ::selection {
     color: ${theme.colors.bg};

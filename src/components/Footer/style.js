@@ -6,6 +6,7 @@ export const StyledFooterContainer = styled.div`
 height: 400px;
 width: 100%;
 padding: 40px;
+background-color: ${theme.colors.bg};
 
 
 .copyright-text {
@@ -17,7 +18,6 @@ padding: 40px;
 export const AddressContainer = styled.div`
 width: 100%;
 display: flex;
-height: 100%;
 align-items: center;
 justify-content: center;
 flex-direction: column;
