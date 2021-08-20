@@ -13,6 +13,7 @@ const Title = (props, ref) => {
     className,
     whiteTitle,
     withTitleDecoration,
+    withTitleDecorationWhite,
     dangerouslySetInnerHTML
   } = props
 
@@ -25,7 +26,8 @@ const Title = (props, ref) => {
     style: style || null,
     className: `${className || ""} Title ${type || ""}`,
     whiteTitle,
-    withTitleDecoration
+    withTitleDecoration,
+    withTitleDecorationWhite
   }
 
   return dangerouslySetInnerHTML ? (

@@ -11,9 +11,12 @@ import { useTheme } from "@material-ui/core/styles"
 const ContentServicesBlock = ({ data }) => {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up("900"))
-  console.log(data)
+  console.log('data', data)
   return (
     <ContentServicesBlockStyled>
+      <Title as="h2" withTitleDecoration>
+      {data?.content_block_title?.text}
+      </Title>
       {data?.content_block?.map((block, index) => {
         let image = getImage(block?.block_image?.localFile)
         return (

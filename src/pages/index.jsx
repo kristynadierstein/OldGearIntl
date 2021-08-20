@@ -9,6 +9,10 @@ import SEO from "../components/SEO"
 import ZoomSlider from "../components/HeroSlider"
 import { getQuery } from "../utils/functions/getQuery"
 import ContentServicesBlock from "../components/ContentServicesBlock"
+import WhyToUseOurServicesBlock from "../components/WhyToUseOurServicesBlock"
+import HowCanWeHelp from "../components/HowCanWeHelp"
+import GalleryCarousel from "../components/GalleryCarousel"
+import NewsletterModule from "../components/NewsletterModule"
 
 const IndexWrapper = Wrapper.withComponent("main")
 
@@ -17,6 +21,10 @@ const Index = ({ pageContext: { locale }, location, data }) => {
   const i18n = lang.i18n[lang.locale]
   const homePageQuery = getQuery(["homepage", "nodes", 0, "data"], data)
   const heroBannerQuery = getQuery(["heroBanner", "nodes", 0, "data"], data)
+  const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data)
+  const reviewsCarousel = getQuery(["reviews", "nodes", 0, "data"], data)
+  const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data)
+  const newsletterModule = getQuery(["newsletterModule", "nodes", 0, "data"], data)
 
   console.log(heroBannerQuery)
 
@@ -30,6 +38,10 @@ const Index = ({ pageContext: { locale }, location, data }) => {
       </IndexWrapper> */}
       <ZoomSlider query={heroBannerQuery} />
       <ContentServicesBlock data={homePageQuery} />
+      <WhyToUseOurServicesBlock data={cardsBlock}/>
+      <HowCanWeHelp data={reviewsCarousel}/>
+      <GalleryCarousel data={galeryCarousel}/>
+      <NewsletterModule data={newsletterModule}/>
     </>
   )
 }
@@ -49,6 +61,9 @@ export const homepageQuery = graphql`
       nodes {
         lang
         data {
+          content_block_title {
+            text
+          }
           content_block {
             link_label {
               text
@@ -71,6 +86,131 @@ export const homepageQuery = graphql`
         }
       }
     }
+    newsletterModule: allPrismicNewsletterModule {
+      nodes {
+        lang
+        data {
+          title {
+            text
+          }
+          logo {
+            url
+          }
+          label_input {
+            text
+          }
+          label_button {
+            text
+          }
+        }
+      }
+    }
+    imageCarousel: allPrismicGaleryCarousel {
+      nodes {
+        lang
+        data {
+          title {
+            text
+          }
+          section_container {
+            description_i {
+              text
+            }
+            description_ii {
+              text
+            }
+            image_i_horizontal {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+            image_i_primary_vertical {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+            image_i_secondary_vertical {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+            image_ii_horizontal {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+            image_ii_primary_vertical {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+            image_ii_secondary_vertical {
+              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 700, quality: 100)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    cardsBlock: allPrismic3CardsBlock {
+      nodes {
+        lang
+        data {
+          card_content {
+            text {
+              html
+            }
+          }
+          cta_label {
+            text
+          }
+          title {
+            text
+          }
+        }
+      }
+    }
+    
+    reviews: allPrismicReviewsCarousel {
+      nodes {
+        lang
+        data {
+          review_content {
+            author_name {
+              text
+            }
+            author_role {
+              text
+            }
+            main_review {
+              text
+            }
+          }
+          title {
+            text
+          }
+        }
+      }
+    }
     heroBanner: allPrismicHeroBanner {
       nodes {
         lang
@@ -88,6 +228,9 @@ export const homepageQuery = graphql`
             text
           }
           hero_cta_logistics_label {
+            text
+          }
+          scroll_down_message {
             text
           }
         }

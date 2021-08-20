@@ -24,17 +24,22 @@ const reveal2 = () => css`
   `} 0.7s reverse forwards;
 `;
 
-export const NavigationContainer = styled.div`
+export const NavigationWidthLimiter = styled.div`
+  max-width: 1440px;
   display: flex;
   width: 100%;
   justify-content: center;
   font-family: "Satoshi";
   margin: 40px auto;
   margin-top: 0px;
+`;
+
+export const NavigationContainer = styled.div`
+  width: 100%;
+  background-color: rgba(250, 250, 250, 0.5);
   position: fixed;
   top: 0;
   z-index: 1000000;
-  background-color: rgba(250, 250, 250, 0.5);
 `;
 
 export const MenuItemsContainer = styled.div`
@@ -46,8 +51,7 @@ export const MenuItemsContainer = styled.div`
 
   a {
     font-style: normal;
-    font-weight: 400;
-    color: white;
+    font-weight: 700;
     position: relative;
 
     ::before {

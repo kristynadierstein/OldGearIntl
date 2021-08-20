@@ -8,7 +8,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import LocaleContext from '../../context/LocaleProvider'
 import StyleContext from '../../context/StyleProvider'
 import { getQuery } from '../../utils/functions/getQuery'
-import { NavigationContainer, MenuItemsContainer, Logo, BurgerMenuContainer } from './style'
+import { NavigationContainer, MenuItemsContainer, Logo, BurgerMenuContainer, NavigationWidthLimiter } from './style'
 import Text from '../Utilities/TextStyled'
 import LocalizedLink from '../LocalizedLink'
 import { BurgerMenu } from '../Icons/Hamburger'
@@ -73,46 +73,48 @@ const Navigation = props => {
 
   return (
     isDesktop ? (
-    <NavigationContainer>
-      <MenuItemsContainer fontColor={color}>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_1.text}
-          </Text>
-        </LocalizedLink>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_2.text}
-          </Text>
-        </LocalizedLink>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_3.text}
-          </Text>
-        </LocalizedLink>
-      </MenuItemsContainer>
-      <Logo>
-        <img src={navigationQuery.navigation_logo_red.url} alt="" style={{ width: '150px' }} />
-      </Logo>
-      <MenuItemsContainer fontColor={color}>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_4.text}
-          </Text>
-        </LocalizedLink>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_5.text}
-          </Text>
-        </LocalizedLink>
-        <LocalizedLink to="/">
-          <Text type="primary-small" uppercase className='menu-items'>
-            {navigation.[0].menu_item_6.text}
-          </Text>
-        </LocalizedLink>
-      </MenuItemsContainer>
-    </NavigationContainer>
-  ) : (
+      <NavigationContainer>
+        <NavigationWidthLimiter>
+        <MenuItemsContainer fontColor={color}>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_1.text}
+            </Text>
+          </LocalizedLink>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_2.text}
+            </Text>
+          </LocalizedLink>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_3.text}
+            </Text>
+          </LocalizedLink>
+        </MenuItemsContainer>
+        <Logo>
+          <img src={navigationQuery.navigation_logo_red.url} alt="" style={{ width: '150px' }} />
+        </Logo>
+        <MenuItemsContainer fontColor={color}>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_4.text}
+            </Text>
+          </LocalizedLink>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_5.text}
+            </Text>
+          </LocalizedLink>
+          <LocalizedLink to="/">
+            <Text type="primary-small" uppercase className='menu-items'>
+              {navigation.[0].menu_item_6.text}
+            </Text>
+          </LocalizedLink>
+        </MenuItemsContainer>
+        </NavigationWidthLimiter>
+      </NavigationContainer>
+    ) : (
     <>
     <BurgerMenuContainer onClick={handleOpen} openMenu={openMenu}>
       <BurgerMenu openMenu={openMenu}  />
@@ -122,7 +124,7 @@ const Navigation = props => {
     </BurgerMenuContainer>
     <FlyoutMenu openMenu={openMenu} query={navigation} setMenuOpen={setMenuOpen}/>
     </>
-  )
+    )
   )
 }
 

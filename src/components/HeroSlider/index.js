@@ -1,41 +1,40 @@
-import React, { useContext, useState } from "react"
-import PropTypes from "prop-types"
-import HeroSlider, { Slide, ButtonsNav, Nav, OverlayContainer } from "hero-slider"
-import StyleContext from "../../context/StyleProvider"
-import SliderWrapper from "./SliderWrapper"
-import Text from "../Utilities/TextStyled"
-import Title from "../Utilities/TitleStyled"
+import React, { useContext, useState } from "react";
+import PropTypes from "prop-types";
+import HeroSlider, { Slide, Nav, OverlayContainer } from "hero-slider";
+import StyleContext from "../../context/StyleProvider";
+import SliderWrapper from "./SliderWrapper";
+import Text from "../Utilities/TextStyled";
+import Title from "../Utilities/TitleStyled";
+import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
+import { ArrowDown } from "../Icons/ArrowDown";
+import { ScrollDownContainer } from './style'
 
 const carHunting =
-  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg"
+  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg";
 const hvitserkur =
-  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625008741/OGLogistics/shaah-shahidh--subrrYxv8A-unsplash_ypd042.jpg"
+  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625008741/OGLogistics/shaah-shahidh--subrrYxv8A-unsplash_ypd042.jpg";
 
-const ZoomSlider = query => {
-  const styleContext = useContext(StyleContext)
+const ZoomSlider = (query) => {
+  const styleContext = useContext(StyleContext);
 
   const ctaMessage = {
     logistics: query?.query?.hero_cta?.html,
-    carHunt: query?.query?.hero_cta_carhunt?.html
-  }
+    carHunt: query?.query?.hero_cta_carhunt?.html,
+  };
 
-  console.log("query", query)
+  const [message, setMessage] = useState("");
 
-  const [message, setMessage] = useState("")
+  const injectHTML = (text) => {
+    return { __html: text };
+  };
 
-  const injectHTML = text => {
-    return { __html: text }
-  }
-  console.log("ctaMessage.logistics ", typeof query?.query?.hero_cta?.html)
   return (
     <HeroSlider
       orientation="horizontal"
       initialSlide={1}
-      // onBeforeChange={(previousSlide, nextSlide) => console.log("onBeforeChange", previousSlide, nextSlide)}
-      onChange={nextSlide => setMessage(nextSlide.toString())}
-      // onAfterChange={nextSlide => console.log("onAfterChange", nextSlide)}
+      onChange={(nextSlide) => setMessage(nextSlide.toString())}
       style={{
-        backgroundColor: "#000"
+        backgroundColor: "#000",
       }}
       settings={{
         backgroundAnimation: "zoom",
@@ -44,48 +43,52 @@ const ZoomSlider = query => {
         shouldAutoplay: true,
         shouldDisplayButtons: false,
         autoplayDuration: 5000,
-        height: "100vh"
+        height: "100vh",
       }}
     >
       <OverlayContainer>
         <SliderWrapper>
-          <Title
-            whiteTitle
-            uppercase
-            as="h1"
-            dangerouslySetInnerHTML={
-              message === "1"
-                ? injectHTML(query?.query?.hero_cta?.html)
-                : injectHTML(query?.query?.hero_cta_carhunt?.html)
-            }
-          ></Title>
+          <WidthLimiterStyled>
+            <Title
+              whiteTitle
+              uppercase
+              as="span"
+              type="h1-secondary-large"
+              dangerouslySetInnerHTML={
+                message === "1"
+                  ? injectHTML(query?.query?.hero_cta?.html)
+                  : injectHTML(query?.query?.hero_cta_carhunt?.html)
+              }
+            ></Title>
+            <ScrollDownContainer>
+              <Text
+                whiteText
+                type="super-small"
+                className="scroll-down-message"
+              >
+                {query?.query?.scroll_down_message.text}
+              </Text>
+              <ArrowDown className="arrow-down-hero" />
+            </ScrollDownContainer>
+          </WidthLimiterStyled>
         </SliderWrapper>
       </OverlayContainer>
 
       <Slide
         background={{
-          backgroundImage: hvitserkur
+          backgroundImage: hvitserkur,
         }}
       />
 
       <Slide
         background={{
-          backgroundImage: carHunting
+          backgroundImage: carHunting,
         }}
       />
-      {/* <ButtonsNav
-        isNullAfterThreshold
-        position={{
-          top: 0,
-          left: '50%',
-          transform: 'translateX(-50%)'
-        }}
-      /> */}
-      <Nav />
     </HeroSlider>
-  )
-}
+  );
+};
 
-ZoomSlider.propTypes = {}
+ZoomSlider.propTypes = {};
 
-export default ZoomSlider
+export default ZoomSlider;
