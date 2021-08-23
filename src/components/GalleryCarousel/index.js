@@ -40,6 +40,7 @@ const GalleryCarousel = (data) => {
         </TitleStyled>
         <TextStyled
           type="primary"
+          as="div"
           className="subtitle-carousel"
           dangerouslySetInnerHTML={injectHTML(data?.data?.subtitle?.html)}
         ></TextStyled>
