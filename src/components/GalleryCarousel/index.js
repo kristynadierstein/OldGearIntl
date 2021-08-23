@@ -28,12 +28,21 @@ const GalleryCarousel = (data) => {
     slidesToScroll: 1,
   };
 
+  const injectHTML = (text) => {
+    return { __html: text };
+  };
+
   return (
     <GalleryCarouselContainerStyled>
       <WidthLimiterStyled>
         <TitleStyled withTitleDecoration as="h2">
           {data?.data?.title?.text}
         </TitleStyled>
+        <TextStyled
+          type="primary"
+          className="subtitle-carousel"
+          dangerouslySetInnerHTML={injectHTML(data?.data?.subtitle?.html)}
+        ></TextStyled>
         <Slider {...settings}>
           {data?.data?.section_container?.map((photo, index) => (
             <SliderContainer>

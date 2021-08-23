@@ -12,6 +12,9 @@ const ContentServicesBlock = ({ data }) => {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up("900"))
   console.log('data', data)
+  const injectHTML = (text) => {
+    return { __html: text };
+  };
   return (
     <ContentServicesBlockStyled>
       <Title as="h2" withTitleDecoration>
@@ -26,7 +29,7 @@ const ContentServicesBlock = ({ data }) => {
                 <Title type="h4" whiteTitle uppercase className="title-content-block">
                   {block?.title?.text}
                 </Title>
-                <Text type="primary-small" whiteText dangerouslySetInnerHTML={{ __html: block?.text.html }}></Text>
+                <Text type="primary-small" whiteText dangerouslySetInnerHTML={injectHTML(block?.text.html)}></Text>
                 <LocalizedLink to="/">{block?.link_label?.text}</LocalizedLink>
               </ContentBlockSmall>
               <GatsbyImage image={image} alt="" className="image-content-block" />

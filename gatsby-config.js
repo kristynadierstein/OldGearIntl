@@ -28,6 +28,19 @@ module.exports = {
     `gatsby-plugin-image`,
     'gatsby-plugin-catch-links',
     {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `keyItT7KyJ8jjlQyQ`, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [
+          {
+            baseId: `appWAQdbhT8ASBIC2`,
+            tableName: `OldGear`
+          }
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'old-gear',

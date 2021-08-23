@@ -10,6 +10,16 @@ export const GalleryCarouselContainerStyled = styled.div`
   padding-top: 80px;
   padding-bottom: 140px;
 
+  .subtitle-carousel {
+    color: #0b1f30;
+    margin-top: 1em;
+  }
+
+  .subtitle-carousel a {
+    color: #0b1f30;
+    font-weight: normal;
+    font-style: normal;
+  }
 
   .slick-slider {
     margin-top: 80px;

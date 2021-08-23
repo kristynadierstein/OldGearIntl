@@ -112,6 +112,9 @@ export const homepageQuery = graphql`
           title {
             text
           }
+          subtitle {
+            html
+          }
           section_container {
             description_i {
               text
