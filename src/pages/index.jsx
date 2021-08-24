@@ -93,6 +93,9 @@ export const homepageQuery = graphql`
           title {
             text
           }
+          thank_you_message {
+            text
+          }
           logo {
             url
           }
