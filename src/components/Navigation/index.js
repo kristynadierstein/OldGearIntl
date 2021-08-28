@@ -78,12 +78,12 @@ const Navigation = props => {
         <MenuItemsContainer fontColor={color}>
           <LocalizedLink to="/">
             <Text type="primary-small" uppercase className='menu-items'>
-              {navigation.[0].menu_item_1.text}
+              
             </Text>
           </LocalizedLink>
           <LocalizedLink to="/">
             <Text type="primary-small" uppercase className='menu-items'>
-              {navigation.[0].menu_item_2.text}
+            {navigation.[0].menu_item_1.text}
             </Text>
           </LocalizedLink>
           <LocalizedLink to="/">
@@ -108,7 +108,6 @@ const Navigation = props => {
           </LocalizedLink>
           <LocalizedLink to="/">
             <Text type="primary-small" uppercase className='menu-items'>
-              {navigation.[0].menu_item_6.text}
             </Text>
           </LocalizedLink>
         </MenuItemsContainer>

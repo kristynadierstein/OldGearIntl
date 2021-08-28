@@ -14,7 +14,7 @@ import '@reach/skip-nav/styles.css'
 
 import SkipNavLink from './SkipNavLink'
 import Navigation from '../components/Navigation'
-import Footer from '../components/Footer/index.js'
+
 import { theme, reset } from '../styles'
 import i18n from '../../config/i18n'
 
@@ -115,7 +115,7 @@ const Layout = ({ children, pageContext: { locale } }) => {
           ) : (<></>)}
           <Navigation />
           {children}
-          <Footer />
+
         </>
       </ThemeProvider>
     </LocaleContext.Provider>

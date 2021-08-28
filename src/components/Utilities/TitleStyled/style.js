@@ -13,6 +13,10 @@ export const TitleStyled = styled.span`
     display: none;
   }
 
+  @media (max-width: ${theme.breakpoints.m}) {
+    text-align: center;
+  }
+
   &:before {
     content: "";
     border: ${(props) =>
@@ -27,7 +31,7 @@ export const TitleStyled = styled.span`
     bottom: 5px;
 
     @media (max-width: ${theme.breakpoints.m}) {
-      bottom: 3px;
+      display: none;
     }
   }
 

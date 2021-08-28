@@ -10,7 +10,15 @@ export const HowCanWeHelpContainerStyled = styled.div`
 
   h2 {
     margin-bottom: 80px;
+
+    @media (max-width: ${theme.breakpoints.m}) {
+      max-width: 200px;
+      margin: 0px auto;
+      margin-bottom: 40px;
+    }
   }
+
+
 
   .slick-slider {
     max-width: 80%;

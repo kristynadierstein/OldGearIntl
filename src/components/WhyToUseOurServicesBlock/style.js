@@ -4,6 +4,7 @@ import { theme } from "../../styles";
 export const WhyToUseOurServicesBlockStyled = styled.div`
   padding-bottom: 80px;
   padding: 40px;
+  background: white;
 
   @media (max-width: ${theme.breakpoints.m}) {
     padding-top: 40px;

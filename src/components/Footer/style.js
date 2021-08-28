@@ -7,6 +7,11 @@ height: 400px;
 width: 100%;
 padding: 40px;
 background-color: ${theme.colors.bg};
+position: absolute;
+bottom: 0;
+left: 0;
+z-index: -8;
+}
 
 
 .copyright-text {

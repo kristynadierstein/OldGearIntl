@@ -7,7 +7,7 @@ import Text from "../Utilities/TextStyled";
 import Title from "../Utilities/TitleStyled";
 import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
 import { ArrowDown } from "../Icons/ArrowDown";
-import { ScrollDownContainer } from './style'
+import { ScrollDownContainer, SliderWrapperStyled } from './style'
 
 const carHunting =
   "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg";
@@ -29,6 +29,7 @@ const ZoomSlider = (query) => {
   };
 
   return (
+    <SliderWrapperStyled>
     <HeroSlider
       orientation="horizontal"
       initialSlide={1}
@@ -86,6 +87,7 @@ const ZoomSlider = (query) => {
         }}
       />
     </HeroSlider>
+    </SliderWrapperStyled>
   );
 };
 

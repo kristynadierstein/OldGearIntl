@@ -64,7 +64,7 @@ export const SliderWrapperStyled = styled.div`
 
   @media (max-width: ${theme.breakpoints.l}) {
     .Title h1 {
-      margin-left: 0px;
+      margin-left: 40px;
     }
   }
 
@@ -77,6 +77,9 @@ export const SliderWrapperStyled = styled.div`
       max-width: 560px;
       margin-top: 40px;
       font-size: 36px !important;
+      text-align: left!important;
+      padding-left: 40px;
+      padding-right:40px;
 
       strong:before {
         height: 13px;
@@ -92,6 +95,9 @@ export const SliderWrapperStyled = styled.div`
       max-width: 300px;
       margin-top: 40px;
       font-size: 30px !important;
+      text-align: left!important;
+      padding-left: 20px;
+      padding-right:20px;
 
       strong:before {
         height: 13px;

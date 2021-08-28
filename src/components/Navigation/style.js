@@ -30,8 +30,7 @@ export const NavigationWidthLimiter = styled.div`
   width: 100%;
   justify-content: center;
   font-family: "Satoshi";
-  margin: 40px auto;
-  margin-top: 0px;
+  margin: 0px auto;
 `;
 
 export const NavigationContainer = styled.div`

@@ -6,6 +6,10 @@ export const ContentServicesBlockStyled = styled.div`
   width: 100%;
   margin: 0 auto;
   margin-top: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background:white;
+  padding-top:80px;
 
   @media (min-width: ${theme.breakpoints.m}) {
     margin-top: 80px;
@@ -18,7 +22,7 @@ export const BlockContainerStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 80px;
+    padding-bottom: 80px;
     flex-direction: ${(props) =>props.order / 2 === 0 ? "row" : "row-reverse"};
   }
 
@@ -33,8 +37,8 @@ export const BlockContainerStyled = styled.div`
     @media (min-width: ${theme.breakpoints.m}) {
       right: ${(props) => (props.order / 2 === 0 ? "100px" : "initial")};
       left: ${(props) => (props.order / 2 === 0 ? "initial" : "100px")};
-      z-index: -8;
-      margin-bottom: 200px;
+      z-index: 0;
+      padding-bottom: 200px;
     }
   }
 `;
@@ -49,9 +53,12 @@ export const ContentBlockSmall = styled.div`
   background-color: white;
   box-shadow: 0px 30px 60px -30px rgba(0, 0, 0, 0.3),
     0px 50px 100px -20px rgba(50, 50, 93, 0.25);
+    position: relative;
+    z-index: 2;
 
   @media (max-width: ${theme.breakpoints.m}) {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
+    margin-top: 20px;
     border-radius: 0px;
   }
 
@@ -95,5 +102,11 @@ export const ContentBlockSmall = styled.div`
   a:hover {
     text-decoration: none;
     font-weight: 700;
+  }
+
+  @media (max-width: ${theme.breakpoints.m}) {
+    a {
+      padding-top: 0px;
+    }
   }
 `;

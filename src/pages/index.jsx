@@ -1,34 +1,38 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled from "@emotion/styled"
-import { graphql } from "gatsby"
-import { Wrapper, Title } from "../components"
-import website from "../../config/website"
-import { LocaleContext } from "../components/Layout"
-import SEO from "../components/SEO"
-import ZoomSlider from "../components/HeroSlider"
-import { getQuery } from "../utils/functions/getQuery"
-import ContentServicesBlock from "../components/ContentServicesBlock"
-import WhyToUseOurServicesBlock from "../components/WhyToUseOurServicesBlock"
-import HowCanWeHelp from "../components/HowCanWeHelp"
-import GalleryCarousel from "../components/GalleryCarousel"
-import NewsletterModule from "../components/NewsletterModule"
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "@emotion/styled";
+import { graphql } from "gatsby";
+import { Wrapper, Title } from "../components";
+import website from "../../config/website";
+import { LocaleContext } from "../components/Layout";
+import SEO from "../components/SEO";
+import ZoomSlider from "../components/HeroSlider";
+import { getQuery } from "../utils/functions/getQuery";
+import ContentServicesBlock from "../components/ContentServicesBlock";
+import WhyToUseOurServicesBlock from "../components/WhyToUseOurServicesBlock";
+import HowCanWeHelp from "../components/HowCanWeHelp";
+import GalleryCarousel from "../components/GalleryCarousel";
+import NewsletterModule from "../components/NewsletterModule";
+import { MainWrapper } from "../components/MainWrapper"
+import Footer from '../components/Footer/index.js'
+import StickyLeadForm from "../components/StickyLeadForm"
 
-const IndexWrapper = Wrapper.withComponent("main")
+const IndexWrapper = Wrapper.withComponent("main");
 
 const Index = ({ pageContext: { locale }, location, data }) => {
-  const lang = React.useContext(LocaleContext)
-  const i18n = lang.i18n[lang.locale]
-  const homePageQuery = getQuery(["homepage", "nodes", 0, "data"], data)
-  const heroBannerQuery = getQuery(["heroBanner", "nodes", 0, "data"], data)
-  const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data)
-  const reviewsCarousel = getQuery(["reviews", "nodes", 0, "data"], data)
-  const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data)
-  const newsletterModule = getQuery(["newsletterModule", "nodes", 0, "data"], data)
+  const lang = React.useContext(LocaleContext);
+  const i18n = lang.i18n[lang.locale];
+  const homePageQuery = getQuery(["homepage", "nodes", 0, "data"], data);
+  const heroBannerQuery = getQuery(["heroBanner", "nodes", 0, "data"], data);
+  const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data);
+  const reviewsCarousel = getQuery(["reviews", "nodes", 0, "data"], data);
+  const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data);
+  const newsletterModule = getQuery(
+    ["newsletterModule", "nodes", 0, "data"],
+    data
+  );
 
-  console.log(heroBannerQuery)
-
-  
+  console.log(heroBannerQuery);
 
   return (
     <>
@@ -37,23 +41,27 @@ const Index = ({ pageContext: { locale }, location, data }) => {
 
       </IndexWrapper> */}
       <ZoomSlider query={heroBannerQuery} />
-      <ContentServicesBlock data={homePageQuery} />
-      <WhyToUseOurServicesBlock data={cardsBlock}/>
-      <HowCanWeHelp data={reviewsCarousel}/>
-      <GalleryCarousel data={galeryCarousel}/>
-      <NewsletterModule data={newsletterModule}/>
+      <MainWrapper>
+        <StickyLeadForm />
+        <ContentServicesBlock data={homePageQuery} />
+        <WhyToUseOurServicesBlock data={cardsBlock} />
+        <HowCanWeHelp data={reviewsCarousel} />
+        <GalleryCarousel data={galeryCarousel} />
+        <NewsletterModule data={newsletterModule} />
+        <Footer />
+      </MainWrapper>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 Index.propTypes = {
   pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired
+    locale: PropTypes.string.isRequired,
   }).isRequired,
-  location: PropTypes.object.isRequired
-}
+  location: PropTypes.object.isRequired,
+};
 
 export const homepageQuery = graphql`
   query HomePageQuery($locale: String!) {
@@ -195,7 +203,7 @@ export const homepageQuery = graphql`
         }
       }
     }
-    
+
     reviews: allPrismicReviewsCarousel {
       nodes {
         lang
@@ -243,4 +251,4 @@ export const homepageQuery = graphql`
       }
     }
   }
-`
+`;
