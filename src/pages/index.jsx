@@ -25,7 +25,7 @@ const Index = ({ pageContext: { locale }, location, data }) => {
   const homePageQuery = getQuery(["homepage", "nodes", 0, "data"], data);
   const heroBannerQuery = getQuery(["heroBanner", "nodes", 0, "data"], data);
   const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data);
-  const reviewsCarousel = getQuery(["reviews", "nodes", 0, "data"], data);
+  const reviewsCarousel = getQuery(["reviews", "nodes", 0], data);
   const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data);
   const newsletterModule = getQuery(
     ["newsletterModule", "nodes", 0, "data"],
@@ -203,10 +203,10 @@ export const homepageQuery = graphql`
         }
       }
     }
-
-    reviews: allPrismicReviewsCarousel {
+    reviews: allPrismicReviewsCarousel(filter: { uid: { eq: "homepage" } }) {
       nodes {
         lang
+        uid
         data {
           review_content {
             author_name {

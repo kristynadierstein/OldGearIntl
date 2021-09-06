@@ -22,20 +22,26 @@ const HowCanWeHelp = (data) => {
   return (
     <HowCanWeHelpContainerStyled>
       <WidthLimiterStyled>
-          <TitleStyled whiteTitle withTitleDecorationWhite as='h2'>
-              {data?.data?.title.text}
-          </TitleStyled>
+        <TitleStyled whiteTitle withTitleDecorationWhite as="h2">
+          {data?.data?.data?.title?.text}
+        </TitleStyled>
         <Slider {...settings}>
-          {data?.data?.review_content?.map((review, index) => {
-            return (
-              <ReviewContainer>
-                <TextStyled type='primary' whiteText>{review?.main_review?.text}</TextStyled>
-                <TextStyled type='super-small' className='review-author' whiteText>
-                  {review?.author_name?.text}, {review?.author_role?.text}
-                </TextStyled>
-              </ReviewContainer>
-            )
-          })}
+          {data?.data?.data?.review_content?.map((review, index) => {
+              return (
+                <ReviewContainer>
+                  <TextStyled type="primary" whiteText>
+                    {review?.main_review?.text}
+                  </TextStyled>
+                  <TextStyled
+                    type="super-small"
+                    className="review-author"
+                    whiteText
+                  >
+                    {review?.author_name?.text}, {review?.author_role?.text}
+                  </TextStyled>
+                </ReviewContainer>
+              );
+            })}
         </Slider>
       </WidthLimiterStyled>
     </HowCanWeHelpContainerStyled>

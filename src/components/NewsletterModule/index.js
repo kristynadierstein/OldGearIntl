@@ -30,7 +30,7 @@ const NewsletterModule = (data) => {
       "appWAQdbhT8ASBIC2"
     );
 
-    base("OldGear").create(
+    base("OldGear_Newsletter").create(
       [
         {
           fields: {

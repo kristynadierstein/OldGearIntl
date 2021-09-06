@@ -86,7 +86,7 @@ const Navigation = props => {
             {navigation.[0].menu_item_1.text}
             </Text>
           </LocalizedLink>
-          <LocalizedLink to="/">
+          <LocalizedLink to="/services">
             <Text type="primary-small" uppercase className='menu-items'>
               {navigation.[0].menu_item_3.text}
             </Text>

@@ -7,7 +7,7 @@ import Text from "../Utilities/TextStyled";
 import Title from "../Utilities/TitleStyled";
 import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
 import { ArrowDown } from "../Icons/ArrowDown";
-import { ScrollDownContainer, SliderWrapperStyled } from './style'
+import { ScrollDownContainer, SliderWrapperContainer } from './style'
 
 const carHunting =
   "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg";
@@ -29,65 +29,64 @@ const ZoomSlider = (query) => {
   };
 
   return (
-    <SliderWrapperStyled>
-    <HeroSlider
-      orientation="horizontal"
-      initialSlide={1}
-      onChange={(nextSlide) => setMessage(nextSlide.toString())}
-      style={{
-        backgroundColor: "#000",
-      }}
-      settings={{
-        backgroundAnimation: "zoom",
-        slidingDuration: 1000,
-        slidingDelay: 3000,
-        shouldAutoplay: true,
-        shouldDisplayButtons: false,
-        autoplayDuration: 5000,
-        height: "100vh",
-      }}
-    >
-      <OverlayContainer>
-        <SliderWrapper>
-          <WidthLimiterStyled>
-            <Title
-              whiteTitle
-              uppercase
-              as="span"
-              type="h1-secondary-large"
-              dangerouslySetInnerHTML={
-                message === "1"
-                  ? injectHTML(query?.query?.hero_cta?.html)
-                  : injectHTML(query?.query?.hero_cta_carhunt?.html)
-              }
-            ></Title>
-            <ScrollDownContainer>
-              <Text
-                whiteText
-                type="super-small"
-                className="scroll-down-message"
-              >
-                {query?.query?.scroll_down_message.text}
-              </Text>
-              <ArrowDown className="arrow-down-hero" />
-            </ScrollDownContainer>
-          </WidthLimiterStyled>
-        </SliderWrapper>
-      </OverlayContainer>
-
-      <Slide
-        background={{
-          backgroundImage: hvitserkur,
+    <SliderWrapperContainer>
+      {/* <OverlayContainer> */}
+      <ScrollDownContainer>
+            <Text
+              type="super-small"
+              className="scroll-down-message"
+            >
+              {query?.query?.scroll_down_message.text}
+            </Text>
+            <ArrowDown className="arrow-down-hero" />
+          </ScrollDownContainer>
+      <SliderWrapper>
+        {/* <WidthLimiterStyled> */}
+          <Title
+            uppercase
+            as="span"
+            type="h1-secondary-large"
+            dangerouslySetInnerHTML={
+              message === "1"
+                ? injectHTML(query?.query?.hero_cta?.html)
+                : injectHTML(query?.query?.hero_cta_carhunt?.html)
+            }
+          ></Title>
+        {/* </WidthLimiterStyled> */}
+      </SliderWrapper>
+      {/* </OverlayContainer> */}
+      <HeroSlider
+        orientation="horizontal"
+        initialSlide={1}
+        onChange={(nextSlide) => setMessage(nextSlide.toString())}
+        style={{
+          backgroundColor: "#000",
         }}
-      />
-
-      <Slide
-        background={{
-          backgroundImage: carHunting,
+        settings={{
+          backgroundAnimation: "zoom",
+          slidingDuration: 1000,
+          slidingDelay: 3000,
+          shouldAutoplay: true,
+          shouldDisplayButtons: false,
+          autoplayDuration: 5000,
+          height: "70vh",
         }}
-      />
-    </HeroSlider>
-    </SliderWrapperStyled>
+      >
+
+
+        <Slide
+          background={{
+            backgroundImage: hvitserkur,
+          }}
+        />
+
+        <Slide
+          background={{
+            backgroundImage: carHunting,
+          }}
+        />
+      </HeroSlider>
+    </SliderWrapperContainer>
   );
 };
 

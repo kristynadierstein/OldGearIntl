@@ -8,6 +8,10 @@ export const StickyLeadFormWrapper = styled.div`
   position: absolute;
   top: -50px;
   right: 20px;
+
+  @media(max-width: ${theme.breakpoints.m}) {
+    display: none;
+}
 `;
 
 export const StickyContent = styled.div`

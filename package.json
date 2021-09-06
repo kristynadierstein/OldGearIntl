@@ -55,17 +55,19 @@
     "prismic-reactjs": "^0.3.2",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
+    "react": "^16.14.0",
     "react-awesome-slider": "^4.1.0",
-    "react-dom": "^16.12.0",
+    "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
+    "react-player": "^2.9.0",
     "react-slick": "^0.28.1",
     "react-typography": "^0.16.19",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
     "typeface-lora": "^0.0.72",
     "typeface-source-sans-pro": "^0.0.75",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "video-react": "^0.14.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
