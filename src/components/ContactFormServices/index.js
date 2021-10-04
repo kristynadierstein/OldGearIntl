@@ -34,42 +34,43 @@ const ContactFormServices = (data) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log('SUBMITTED')
 
-    const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
-      "appWAQdbhT8ASBIC2"
-    );
+    // const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
+    //   "appWAQdbhT8ASBIC2"
+    // );
 
-    base("LeadForm").create(
-      [
-        {
-          fields: {
-            Name: formState.name,
-            Email: formState.email,
-            Brand: formState.brand,
-            Model: formState.model,
-            Destination: formState.destination,
-            Year: formState.year,
-            Message: formState.message,
-          },
-        },
-      ],
-      function(err, records) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        setFormState({
-          name: "",
-          email: "",
-          brand: "",
-          model: "",
-          destination: "",
-          year: "",
-          message: "",
-        });
-        document.querySelector(".thank-you-message").classList.add("show");
-      }
-    );
+    // base("LeadForm").create(
+    //   [
+    //     {
+    //       fields: {
+    //         Name: formState.name,
+    //         Email: formState.email,
+    //         Brand: formState.brand,
+    //         Model: formState.model,
+    //         Destination: formState.destination,
+    //         Year: formState.year,
+    //         Message: formState.message,
+    //       },
+    //     },
+    //   ],
+    //   function(err, records) {
+    //     if (err) {
+    //       console.error(err);
+    //       return;
+    //     }
+    //     setFormState({
+    //       name: "",
+    //       email: "",
+    //       brand: "",
+    //       model: "",
+    //       destination: "",
+    //       year: "",
+    //       message: "",
+    //     });
+    //     document.querySelector(".thank-you-message").classList.add("show");
+    //   }
+    // );
   };
   return (
     <ContactFormServicesContainer>
