@@ -9,7 +9,7 @@ import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
 import { getQuery } from "../../utils/functions/getQuery";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
-const Airtable = require("airtable");
+// const Airtable = require("airtable");
 
 const ContactFormServices = (data) => {
   const [formState, setFormState] = useState({

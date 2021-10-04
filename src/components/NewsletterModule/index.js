@@ -15,7 +15,7 @@ import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/core/styles";
-const Airtable = require("airtable");
+// const Airtable = require("airtable");
 
 const NewsletterModule = (data) => {
   const [email, setEmail] = useState("");
