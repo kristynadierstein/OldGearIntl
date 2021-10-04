@@ -15,6 +15,10 @@ export const SliderWrapperStyled = styled.div`
   height: 70vh;
   margin-top: 10%;
 
+  @media(max-width: ${theme.breakpoints.m}) {
+    width:100%;
+  }
+
   .Title h1{
     margin-left: 20px;
   }

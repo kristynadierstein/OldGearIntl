@@ -35,7 +35,7 @@ const globalStyle = css`
   }
   ::selection {
     color: ${theme.colors.bg};
-    background-color: ${theme.colors.primary};
+    background-color: #E9B548;
   }
   a {
     color: ${theme.colors.primary};

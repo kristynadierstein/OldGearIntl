@@ -17,7 +17,7 @@ import { LinkedIn } from "../Icons/Social/linkedin";
 import { Youtube } from "../Icons/Social/youtube";
 import LocalizedLink from "../LocalizedLink";
 
-const Footer = (props) => {
+const Footer = ({className}) => {
   const data = useStaticQuery(graphql`
     {
       footer: allPrismicFooter {
@@ -75,7 +75,7 @@ const Footer = (props) => {
   const year = today.getFullYear();
   console.log("footer", footer);
   return (
-    <StyledFooterContainer>
+    <StyledFooterContainer className={className}>
       <WidthLimiterStyled>
         <Title as="h2" whiteTitle withTitleDecorationWhite>
           {footer?.[0].heading?.text}
@@ -91,11 +91,11 @@ const Footer = (props) => {
             <Text type="primary-small" whiteText>
               {footer?.[0].tel_label.text}
             </Text>{" "}
-            <Text type="primary-small" whiteText>
+            {/* <Text type="primary-small" whiteText>
               <a
                 href={`tel:+1${footer?.[0].tel_num?.text}`}
-              >{`+1${footer?.[0].tel_num?.text}`}</a>
-            </Text>
+              >{`${footer?.[0].tel_num?.text}`}</a>
+            </Text> */}
           </ContactContainer>
           <ContactContainer>
             <Text type="primary-small" whiteText>
@@ -104,7 +104,7 @@ const Footer = (props) => {
             <Text type="primary-small" whiteText>
               <a
                 href={`email:${footer?.[0].email_address?.text}`}
-              >{`${footer?.[0].email_address?.text}`}</a>
+              > &nbsp;{`${footer?.[0].email_address?.text}`}</a>
             </Text>
           </ContactContainer>
           <SocialMediaContainer>

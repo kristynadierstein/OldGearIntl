@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import axios from "axios";
-import { encode } from "../../utils/functions/encode";
 import {
   ContactFormServicesContainer,
   ContactServicesFormStyled,
@@ -12,8 +9,6 @@ import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
 import { getQuery } from "../../utils/functions/getQuery";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/core/styles";
 const Airtable = require("airtable");
 
 const ContactFormServices = (data) => {

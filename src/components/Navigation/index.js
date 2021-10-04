@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from '@material-ui/core'
@@ -101,7 +101,7 @@ const Navigation = props => {
               {navigation.[0].menu_item_4.text}
             </Text>
           </LocalizedLink>
-          <LocalizedLink to="/">
+          <LocalizedLink to="/contact">
             <Text type="primary-small" uppercase className='menu-items'>
               {navigation.[0].menu_item_5.text}
             </Text>

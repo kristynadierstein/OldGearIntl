@@ -88,9 +88,12 @@ export const ImageVerticalContainer = styled.div`
   width: 50%;
   height: 300px;
   margin: 8px;
+  margin-bottom: 0;
 
   img {
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   @media (max-width: ${theme.breakpoints.m}) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types"
 import { FlyoutMenuContainerStyled, FlyoutMenuItemsStyled } from "./style"
 import { useStaticQuery, graphql, Link } from 'gatsby'
@@ -30,7 +30,12 @@ const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
     setMenuOpen(!openMenu)
   }
 
-  
+  const links = document.querySelectorAll("a")
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      console.log('CLICKED')
+    })
+  })
 
 
   return (
@@ -43,12 +48,12 @@ const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
                 {query.[0].menu_item_1.text}
               </Text>
             </LocalizedLink>
-            <LocalizedLink to="/">
+            {/* <LocalizedLink to="/">
               <Text type="secondary" uppercase whiteText>
                 {query.[0].menu_item_2.text}
               </Text>
-            </LocalizedLink>
-            <LocalizedLink to="/">
+            </LocalizedLink> */}
+            <LocalizedLink to="/services">
               <Text type="secondary" uppercase whiteText>
                 {query.[0].menu_item_3.text}
               </Text>
@@ -58,7 +63,7 @@ const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
                 {query.[0].menu_item_4.text}
               </Text>
             </LocalizedLink>
-            <LocalizedLink to="/">
+            <LocalizedLink to="/contact">
               <Text type="secondary" uppercase whiteText>
                 {query.[0].menu_item_5.text}
               </Text>

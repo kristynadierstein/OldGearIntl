@@ -23,6 +23,11 @@ color: rgba(11,31,48,1);
     margin-bottom: 4px;
 }
 
+.arrow-down-hero {
+    width: 30px;
+    height: 30px;
+}
+
 `
 
 export const SliderWrapperContainer = styled.div`
@@ -36,10 +41,14 @@ top: 0%;
 // right: 0;
 // z-index: -1000;
 
-// @media(max-width: ${theme.breakpoints.m}) {
-//     width: 100%;
-//     top: 0;
-// }
+@media(max-width: ${theme.breakpoints.m}) {
+ flex-direction: column;
+ top: 10%;
+
+ .rm-hero-slider {
+     width:100%!important;
+ }
+}
 
 .rm-hero-slider {
     margin-top:10%;

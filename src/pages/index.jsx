@@ -27,12 +27,12 @@ const Index = ({ pageContext: { locale }, location, data }) => {
   const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data);
   const reviewsCarousel = getQuery(["reviews", "nodes", 0], data);
   const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data);
+  const contactStickyFormQuery = getQuery(["contactStickyFormQuery", "nodes", 0, "data"], data);
   const newsletterModule = getQuery(
     ["newsletterModule", "nodes", 0, "data"],
     data
   );
 
-  console.log(heroBannerQuery);
 
   return (
     <>
@@ -42,7 +42,7 @@ const Index = ({ pageContext: { locale }, location, data }) => {
       </IndexWrapper> */}
       <ZoomSlider query={heroBannerQuery} />
       <MainWrapper>
-        <StickyLeadForm />
+        <StickyLeadForm data={contactStickyFormQuery}/>
         <ContentServicesBlock data={homePageQuery} />
         <WhyToUseOurServicesBlock data={cardsBlock} />
         <HowCanWeHelp data={reviewsCarousel} />
@@ -90,6 +90,61 @@ export const homepageQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    contactStickyFormQuery: allPrismicContactStickyForm(filter: { lang: { eq: $locale } }) {
+      nodes {
+        lang
+        data {
+          brand_label {
+            text
+          }
+          brand_placeholder {
+            text
+          }
+          buttton_label {
+            text
+          }
+          destination_label {
+            text
+          }
+          destination_placeholder {
+            text
+          }
+          drives_label {
+            text
+          }
+          message_label {
+            text
+          }
+          message_placeholder {
+            text
+          }
+          model_label {
+            text
+          }
+          model_placeholder {
+            text
+          }
+          no {
+            text
+          }
+          subtitle {
+            text
+          }
+          title {
+            text
+          }
+          year_label {
+            text
+          }
+          year_placeholder {
+            text
+          }
+          yes {
+            text
           }
         }
       }
