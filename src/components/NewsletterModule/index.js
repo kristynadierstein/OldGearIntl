@@ -25,29 +25,30 @@ const NewsletterModule = (data) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log("SUBMITTED")
 
-    const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
-      "appWAQdbhT8ASBIC2"
-    );
+    // const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
+    //   "appWAQdbhT8ASBIC2"
+    // );
 
-    base("OldGear_Newsletter").create(
-      [
-        {
-          fields: {
-            Email: email,
-          },
-        },
-      ],
-      function(err, records) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        setEmail("");
-        document.querySelector('.thank-you-message').classList.add('show')
+    // base("OldGear_Newsletter").create(
+    //   [
+    //     {
+    //       fields: {
+    //         Email: email,
+    //       },
+    //     },
+    //   ],
+    //   function(err, records) {
+    //     if (err) {
+    //       console.error(err);
+    //       return;
+    //     }
+    //     setEmail("");
+    //     document.querySelector('.thank-you-message').classList.add('show')
 
-      }
-    );
+    //   }
+    // );
   };
 
   return (
