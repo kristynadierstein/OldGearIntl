@@ -10,15 +10,15 @@ import { TitleStyled } from "../Utilities/TitleStyled/style"
 import { StickyLeadFormWrapper, StickyContent } from "./style"
 
 const StickyLeadForm = data => {
-  useEffect(() => {
-    addResponseMessage("Welcome to this awesome chat!")
-  })
+  // useEffect(() => {
+  //   addResponseMessage("Welcome to this awesome chat!")
+  // })
 
-  console.log("contactStickyFormQuery", data)
-  const handleNewUserMessage = newMessage => {
-    console.log(`New message incoming! ${newMessage}`);
-    // Now send the message throught the backend API
-  };
+  // console.log("contactStickyFormQuery", data)
+  // const handleNewUserMessage = newMessage => {
+  //   console.log(`New message incoming! ${newMessage}`);
+  //   // Now send the message throught the backend API
+  // };
 
 
   return (
