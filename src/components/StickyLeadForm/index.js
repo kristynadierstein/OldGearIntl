@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import {Widget, addResponseMessage, addLinkSnippet, addUserMessage, setQuickButtons} from "react-chat-widget";
-import "react-chat-widget/lib/styles.css";
+// import {Widget, addResponseMessage, addLinkSnippet, addUserMessage, setQuickButtons} from "react-chat-widget";
+// import "react-chat-widget/lib/styles.css";
 import Accordion from "@material-ui/core/Accordion"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
@@ -38,7 +38,7 @@ const StickyLeadForm = data => {
             </TextStyled>
           </AccordionSummary>
           <AccordionDetails>
-            <Widget handleNewUserMessage={handleNewUserMessage} />
+            {/* <Widget handleNewUserMessage={handleNewUserMessage} /> */}
           </AccordionDetails>
         </Accordion>
       </StickyContent>
