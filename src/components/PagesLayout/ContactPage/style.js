@@ -53,6 +53,8 @@ color: rgba(11,31,48,1);
     // width: 100%;
     // flex-direction: column;
     // margin-top:120px;
+    padding-right: 0px;
+    margin: 0 auto;
 }
 
 `
