@@ -13,9 +13,10 @@ import WhyToUseOurServicesBlock from "../components/WhyToUseOurServicesBlock";
 import HowCanWeHelp from "../components/HowCanWeHelp";
 import GalleryCarousel from "../components/GalleryCarousel";
 import NewsletterModule from "../components/NewsletterModule";
-import { MainWrapper } from "../components/MainWrapper"
-import Footer from '../components/Footer/index.js'
-import StickyLeadForm from "../components/StickyLeadForm"
+import { MainWrapper } from "../components/MainWrapper";
+import Footer from "../components/Footer/index.js";
+import StickyLeadForm from "../components/StickyLeadForm";
+import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style";
 
 const IndexWrapper = Wrapper.withComponent("main");
 
@@ -27,12 +28,14 @@ const Index = ({ pageContext: { locale }, location, data }) => {
   const cardsBlock = getQuery(["cardsBlock", "nodes", 0, "data"], data);
   const reviewsCarousel = getQuery(["reviews", "nodes", 0], data);
   const galeryCarousel = getQuery(["imageCarousel", "nodes", 0, "data"], data);
-  const contactStickyFormQuery = getQuery(["contactStickyFormQuery", "nodes", 0, "data"], data);
+  const contactStickyFormQuery = getQuery(
+    ["contactStickyFormQuery", "nodes", 0, "data"],
+    data
+  );
   const newsletterModule = getQuery(
     ["newsletterModule", "nodes", 0, "data"],
     data
   );
-
 
   return (
     <>
@@ -40,14 +43,21 @@ const Index = ({ pageContext: { locale }, location, data }) => {
       {/* <IndexWrapper id={website.skipNavId} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
 
       </IndexWrapper> */}
-      <ZoomSlider query={heroBannerQuery} />
+      <WidthLimiterStyled>
+        <ZoomSlider query={heroBannerQuery} />
+      </WidthLimiterStyled>
+
       <MainWrapper>
-        <StickyLeadForm data={contactStickyFormQuery}/>
-        <ContentServicesBlock data={homePageQuery} />
-        <WhyToUseOurServicesBlock data={cardsBlock} />
-        <HowCanWeHelp data={reviewsCarousel} />
-        <GalleryCarousel data={galeryCarousel} />
-        <NewsletterModule data={newsletterModule} />
+        <WidthLimiterStyled>
+          <StickyLeadForm data={contactStickyFormQuery} />
+          <ContentServicesBlock data={homePageQuery} />
+          </WidthLimiterStyled>
+          
+          <WhyToUseOurServicesBlock data={cardsBlock} />
+          <HowCanWeHelp data={reviewsCarousel} />
+          <GalleryCarousel data={galeryCarousel} />
+          <NewsletterModule data={newsletterModule} />
+      
         <Footer />
       </MainWrapper>
     </>
@@ -94,7 +104,9 @@ export const homepageQuery = graphql`
         }
       }
     }
-    contactStickyFormQuery: allPrismicContactStickyForm(filter: { lang: { eq: $locale } }) {
+    contactStickyFormQuery: allPrismicContactStickyForm(
+      filter: { lang: { eq: $locale } }
+    ) {
       nodes {
         lang
         data {

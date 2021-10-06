@@ -23,7 +23,7 @@ const PagesHeroContainer = (data) => {
 
   return (
     <PagesHeroContainerStyled>
-      <WidthLimiterStyled>
+      {/* <WidthLimiterStyled> */}
         <Container>
           <HeroContent>
             <HeroContentContainer>
@@ -49,7 +49,7 @@ const PagesHeroContainer = (data) => {
             </ImageryContainer>
           </HeroContent>
         </Container>
-      </WidthLimiterStyled>
+      {/* </WidthLimiterStyled> */}
     </PagesHeroContainerStyled>
   );
 };

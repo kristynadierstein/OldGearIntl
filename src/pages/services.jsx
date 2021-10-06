@@ -1,49 +1,46 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { LocaleContext } from "../components/Layout";
+import React from "react"
+import PropTypes from "prop-types"
+import { LocaleContext } from "../components/Layout"
 // import '~video-react/dist/video-react.css';
-import { Player } from "video-react";
-import { graphql } from "gatsby";
-import { Wrapper, Title } from "../components";
-import SEO from "../components/SEO";
-import Footer from "../components/Footer/index.js";
-import { getQuery } from "../utils/functions/getQuery";
-import NewsletterModule from "../components/NewsletterModule";
-import HowCanWeHelp from "../components/HowCanWeHelp";
-import PagesHeroContainer from "../components/PagesLayout/HeroContainer";
-import OurServicesDetailsStyled from "./../components/OurServicesDetailsStyled";
+import { Player } from "video-react"
+import { graphql } from "gatsby"
+import { Wrapper, Title } from "../components"
+import SEO from "../components/SEO"
+import Footer from "../components/Footer/index.js"
+import { getQuery } from "../utils/functions/getQuery"
+import NewsletterModule from "../components/NewsletterModule"
+import HowCanWeHelp from "../components/HowCanWeHelp"
+import PagesHeroContainer from "../components/PagesLayout/HeroContainer"
+import OurServicesDetailsStyled from "./../components/OurServicesDetailsStyled"
 import { MainWrapperShort } from "./../components/PagesLayout/HeroContainer/style"
 import ContactFormServices from "./../components/ContactFormServices"
 
 const services = ({ pageContext: { locale }, location, data }) => {
-  const lang = React.useContext(LocaleContext);
-  const i18n = lang.i18n[lang.locale];
+  const lang = React.useContext(LocaleContext)
+  const i18n = lang.i18n[lang.locale]
 
-  const newsletterModule = getQuery(
-    ["newsletterModule", "nodes", 0, "data"],
-    data
-  );
-  const reviewsCarousel = getQuery(["reviews", "nodes", 0], data);
-  const servicePageQuery = getQuery(["servicePage", "nodes", 0, "data"], data);
+  const newsletterModule = getQuery(["newsletterModule", "nodes", 0, "data"], data)
+  const reviewsCarousel = getQuery(["reviews", "nodes", 0], data)
+  const servicePageQuery = getQuery(["servicePage", "nodes", 0, "data"], data)
 
   return (
     <>
       <SEO pathname={location.pathname} locale={locale} />
       <PagesHeroContainer data={servicePageQuery} />
       <MainWrapperShort>
-        <OurServicesDetailsStyled data={servicePageQuery}/>
-        <ContactFormServices data={servicePageQuery}/>
+        <OurServicesDetailsStyled data={servicePageQuery} />
+        <ContactFormServices data={servicePageQuery} />
         <HowCanWeHelp data={reviewsCarousel} />
         <NewsletterModule data={newsletterModule} />
         <Footer />
       </MainWrapperShort>
     </>
-  );
-};
+  )
+}
 
-services.propTypes = {};
+services.propTypes = {}
 
-export default services;
+export default services
 
 export const serviceseQuery = graphql`
   query Servicesuery($locale: String!) {
@@ -154,9 +151,7 @@ export const serviceseQuery = graphql`
         }
       }
     }
-    newsletterModule: allPrismicNewsletterModule(
-      filter: { lang: { eq: $locale } }
-    ) {
+    newsletterModule: allPrismicNewsletterModule(filter: { lang: { eq: $locale } }) {
       nodes {
         lang
         data {
@@ -179,4 +174,4 @@ export const serviceseQuery = graphql`
       }
     }
   }
-`;
+`

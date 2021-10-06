@@ -37,7 +37,7 @@ export const SliderWrapperStyled = styled.div`
       &:before {
         content: "";
         width: 100%;
-        background-color: #f6262f;
+        background-color: #E9B548;
         position: absolute;
         left: 0;
         bottom: 20px;

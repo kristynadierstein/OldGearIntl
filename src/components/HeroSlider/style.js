@@ -36,6 +36,7 @@ height: 100%;
 display: flex;
 position: fixed;
 top: 0%;
+right:0;
 // position: fixed;
 // top: 20%;
 // right: 0;
