@@ -15,6 +15,10 @@ export const ImageryCarHuntingContainer = styled.div`
   position: relative;
   padding-top: unset;
   width: 50%;
+
+  @media (max-width: ${theme.breakpoints.m}) {
+    width: 100%;
+  }
 `
 
 export const CarHuntContainer = styled.div`
@@ -100,7 +104,8 @@ export const CarHuntingContainerContent = styled.div`
   }
 
   @media (max-width: ${theme.breakpoints.m}) {
-    padding-top: 80px;
+    padding-top: 0px;
+    padding-bottom:  80px;
   }
 `
 

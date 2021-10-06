@@ -20,6 +20,11 @@ export const MainWrapperShort = styled.div`
   z-index: 1;
   background-color: white;
   padding-bottom: 400px;
+  
+  @media (max-width: ${theme.breakpoints.m}) {
+    padding-top: 40px;
+  }
+
 `;
 
 export const Container = styled.div`

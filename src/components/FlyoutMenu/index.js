@@ -50,7 +50,7 @@ const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
                 {query.[0].menu_item_3.text}
               </Text>
             </LocalizedLink>
-            <LocalizedLink to="/" onClick={() => setMenuOpen(!openMenu)}>
+            <LocalizedLink to="/car-hunting" onClick={() => setMenuOpen(!openMenu)}>
               <Text type="secondary" uppercase whiteText>
                 {query.[0].menu_item_4.text}
               </Text>
@@ -60,11 +60,11 @@ const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
                 {query.[0].menu_item_5.text}
               </Text>
             </LocalizedLink>
-            <LocalizedLink to="/car-hunting" onClick={() => setMenuOpen(!openMenu)}>
+            {/* <LocalizedLink to="/car-hunting" onClick={() => setMenuOpen(!openMenu)}>
               <Text type="secondary" uppercase whiteText>
                 {query.[0].menu_item_6.text}
               </Text>
-            </LocalizedLink>
+            </LocalizedLink> */}
           </FlyoutMenuItemsStyled>
           <Escape className="flyout-escape" onClick={clickHandler}/>
           <LocaleSwitcherFlyout data-name="locale-switcher">
