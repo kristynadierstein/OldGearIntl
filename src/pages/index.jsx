@@ -119,15 +119,6 @@ export const homepageQuery = graphql`
           buttton_label {
             text
           }
-          destination_label {
-            text
-          }
-          destination_placeholder {
-            text
-          }
-          drives_label {
-            text
-          }
           message_label {
             text
           }
@@ -140,9 +131,6 @@ export const homepageQuery = graphql`
           model_placeholder {
             text
           }
-          no {
-            text
-          }
           subtitle {
             text
           }
@@ -153,9 +141,6 @@ export const homepageQuery = graphql`
             text
           }
           year_placeholder {
-            text
-          }
-          yes {
             text
           }
         }

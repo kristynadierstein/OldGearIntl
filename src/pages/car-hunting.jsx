@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
-import { LocaleContext } from "../components/Layout"
-import SEO from "../components/SEO"
-import { getQuery } from "../utils/functions/getQuery"
-import { Wrapper } from "../components"
-import PagesHeroContainer from "../components/PagesLayout/HeroContainer"
-import Footer from "../components/Footer/index.js"
-import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style"
-import Text from "../components/Utilities/TextStyled"
-import Title from "../components/Utilities/TitleStyled"
-import CarHuntingHeroContainer from "../components/PagesLayout/CarHuntingPage/index"
-import NewsletterModule from "../components/NewsletterModule"
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import { LocaleContext } from "../components/Layout";
+import SEO from "../components/SEO";
+import { getQuery } from "../utils/functions/getQuery";
+import { Wrapper } from "../components";
+import PagesHeroContainer from "../components/PagesLayout/HeroContainer";
+import Footer from "../components/Footer/index.js";
+import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style";
+import Text from "../components/Utilities/TextStyled";
+import Title from "../components/Utilities/TitleStyled";
+import CarHuntingHeroContainer from "../components/PagesLayout/CarHuntingPage/index";
+import NewsletterModule from "../components/NewsletterModule";
 import {
   CarHuntingPage,
   ContactPageContainerMain,
@@ -22,20 +22,32 @@ import {
   CarHuntingBoxes,
   CarHuntingContainerContent,
   CarHuntingServicesContainer,
-  Content
-} from "../components/PagesLayout/CarHuntingPage/style"
-import { MainWrapperShort } from "../components/PagesLayout/HeroContainer/style"
+  Content,
+} from "../components/PagesLayout/CarHuntingPage/style";
+import { MainWrapperShort } from "../components/PagesLayout/HeroContainer/style";
+import ContactFormCarHunting from "../components/ContactFormCarhunting";
 
 const carHunting = ({ pageContext: { locale }, location, data }) => {
-  console.log("data from car-hunting", data)
-  const lang = React.useContext(LocaleContext)
-  const i18n = lang.i18n[lang.locale]
-  const newsletterModule = getQuery(["newsletterModule", "nodes", 0, "data"], data)
+  console.log("data from car-hunting", data);
+  const lang = React.useContext(LocaleContext);
+  const i18n = lang.i18n[lang.locale];
+  const newsletterModule = getQuery(
+    ["newsletterModule", "nodes", 0, "data"],
+    data
+  );
 
-  const carHuntingPageQuery = getQuery(["allPrismicCarhuntingPage", "nodes", 0], data)
-  console.log("carHuntingPageQuery", carHuntingPageQuery)
+  const carHuntingPageQuery = getQuery(
+    ["allPrismicCarhuntingPage", "nodes", 0],
+    data
+  );
+  console.log("carHuntingPageQuery", carHuntingPageQuery);
+  const contactStickyFormQuery = getQuery(
+    ["contactStickyFormQuery", "nodes", 0, "data"],
+    data
+  );
+  console.log("contactStickyFormQuery", contactStickyFormQuery);
 
-  const injectHTML = text => ({ __html: text })
+  const injectHTML = (text) => ({ __html: text });
 
   return (
     <CarHuntingPage>
@@ -52,14 +64,21 @@ const carHunting = ({ pageContext: { locale }, location, data }) => {
               type="primary"
               as="div"
               className="subtitle-services-page"
-              dangerouslySetInnerHTML={injectHTML(carHuntingPageQuery?.data?.content?.text)}
+              dangerouslySetInnerHTML={injectHTML(
+                carHuntingPageQuery?.data?.content?.text
+              )}
             ></Text>
 
             <CarHuntingServicesContainer>
               {carHuntingPageQuery?.data?.page_html_content?.length > 0 ? (
-                carHuntingPageQuery?.data?.page_html_content.map(service => (
+                carHuntingPageQuery?.data?.page_html_content.map((service) => (
                   <Content>
-                    <Title type="h5" as="h5" uppercase className="title-services-page">
+                    <Title
+                      type="h5"
+                      as="h5"
+                      uppercase
+                      className="title-services-page"
+                    >
                       {service?.title?.text}
                     </Title>
                     <Text
@@ -77,20 +96,78 @@ const carHunting = ({ pageContext: { locale }, location, data }) => {
               )}
             </CarHuntingServicesContainer>
           </CarHuntingContainerContent>
+          <ContactFormCarHunting data={contactStickyFormQuery} />
         </WidthLimiterStyled>
         <NewsletterModule data={newsletterModule} />
         <Footer className="contact-footer" />
       </MainWrapperShort>
     </CarHuntingPage>
-  )
-}
+  );
+};
 
-carHunting.propTypes = {}
+carHunting.propTypes = {};
 
-export default carHunting
+export default carHunting;
 
 export const query = graphql`
   query CarHuntingQuery($locale: String!) {
+    contactStickyFormQuery: allPrismicContactStickyForm(
+      filter: { lang: { eq: $locale } }
+    ) {
+      nodes {
+        lang
+        data {
+          thank_you_message {
+            text
+          }
+          brand_label {
+            text
+          }
+          brand_placeholder {
+            text
+          }
+          buttton_label {
+            text
+          }
+          message_label {
+            text
+          }
+          message_placeholder {
+            text
+          }
+          email_label {
+            text
+          }
+          email_placeholder {
+            text
+          }
+          name_label {
+            text
+          }
+          name_placeholder {
+            text
+          }
+          model_label {
+            text
+          }
+          model_placeholder {
+            text
+          }
+          subtitle {
+            text
+          }
+          title {
+            text
+          }
+          year_label {
+            text
+          }
+          year_placeholder {
+            text
+          }
+        }
+      }
+    }
     allPrismicCarhuntingPage(filter: { lang: { eq: $locale } }) {
       nodes {
         lang
@@ -135,7 +212,9 @@ export const query = graphql`
         }
       }
     }
-    newsletterModule: allPrismicNewsletterModule(filter: { lang: { eq: $locale } }) {
+    newsletterModule: allPrismicNewsletterModule(
+      filter: { lang: { eq: $locale } }
+    ) {
       nodes {
         lang
         data {
@@ -158,4 +237,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
