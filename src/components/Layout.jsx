@@ -1,25 +1,25 @@
 /* eslint no-unused-expressions: 0 */
 /* eslint react/destructuring-assignment: 0 */
 
-import React, { useEffect } from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { Global, css } from "@emotion/core"
-import styled from "@emotion/styled"
-import { ThemeProvider } from "emotion-theming"
-import { useMediaQuery } from "@material-ui/core"
-import { useTheme } from "@material-ui/core/styles"
-import useScript from "./../hooks/useScript"
-import "@reach/skip-nav/styles.css"
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { Global, css } from "@emotion/core";
+import styled from "@emotion/styled";
+import { ThemeProvider } from "emotion-theming";
+import { useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import useScript from "./../hooks/useScript";
+import "@reach/skip-nav/styles.css";
 
-import SkipNavLink from "./SkipNavLink"
-import Navigation from "./Navigation"
+import SkipNavLink from "./SkipNavLink";
+import Navigation from "./Navigation";
 
-import { theme, reset } from "../styles"
-import i18n from "../../config/i18n"
+import { theme, reset } from "../styles";
+import i18n from "../../config/i18n";
 
-import "typeface-lora"
-import "typeface-source-sans-pro"
+import "typeface-lora";
+import "typeface-source-sans-pro";
 
 const globalStyle = css`
   ${reset}
@@ -73,7 +73,7 @@ const globalStyle = css`
       font-size: 0.563rem !important;
     }
   }
-`
+`;
 
 const LocaleSwitcher = styled.div`
   position: absolute;
@@ -82,20 +82,22 @@ const LocaleSwitcher = styled.div`
   padding: 1rem;
   font-size: 10px;
   z-index: 100000000;
-`
+`;
 
-const LocaleContext = React.createContext()
+const LocaleContext = React.createContext();
 
 const Layout = ({ children, pageContext: { locale } }) => {
-  useScript("https://client.crisp.chat/l.js")
+  useScript("https://client.crisp.chat/l.js");
 
   useEffect(() => {
-    window.$crisp = []
-    window.CRISP_WEBSITE_ID = "4894d214-2462-4c2b-bbe0-f103aea3e25a"
-  }, [])
+    if (typeof window !== `undefined`) {
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "4894d214-2462-4c2b-bbe0-f103aea3e25a";
+    }
+  }, []);
 
-  const theme = useTheme()
-  const isDesktop = useMediaQuery(theme.breakpoints.up("900"))
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("900"));
 
   return (
     <LocaleContext.Provider value={{ locale, i18n }}>
@@ -126,14 +128,14 @@ const Layout = ({ children, pageContext: { locale } }) => {
         </>
       </ThemeProvider>
     </LocaleContext.Provider>
-  )
-}
+  );
+};
 
-export { LocaleContext, Layout }
+export { LocaleContext, Layout };
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired
-  }).isRequired
-}
+    locale: PropTypes.string.isRequired,
+  }).isRequired,
+};
