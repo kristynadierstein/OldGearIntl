@@ -4,7 +4,9 @@ import { LocaleProvider } from "./src/context/LocaleProvider"
 import { StyleProvider } from "./src/context/StyleProvider"
 import { Layout } from "./src/components/Layout"
 
+
 const wrapPageElement = ({ element, props }) => {
+
 
   return (
     <>

@@ -15,7 +15,7 @@ import GalleryCarousel from "../components/GalleryCarousel";
 import NewsletterModule from "../components/NewsletterModule";
 import { MainWrapper } from "../components/MainWrapper";
 import Footer from "../components/Footer/index.js";
-import StickyLeadForm from "../components/StickyLeadForm";
+// import StickyLeadForm from "../components/StickyLeadForm";
 import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style";
 
 const IndexWrapper = Wrapper.withComponent("main");
@@ -50,7 +50,7 @@ const Index = ({ pageContext: { locale }, location, data }) => {
 
       <MainWrapper>
         <WidthLimiterStyled>
-          <StickyLeadForm data={contactStickyFormQuery} />
+          {/* <StickyLeadForm data={contactStickyFormQuery} /> */}
           <ContentServicesBlock data={homePageQuery} />
           </WidthLimiterStyled>
           

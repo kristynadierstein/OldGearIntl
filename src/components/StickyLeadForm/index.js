@@ -46,7 +46,6 @@ const StickyLeadForm = data => {
             </TextStyled>
           </AccordionSummary>
           <AccordionDetails>
-            <Widget handleNewUserMessage={handleNewUserMessage} />
           </AccordionDetails>
         </Accordion>
       </StickyContent>
