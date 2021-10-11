@@ -30,7 +30,7 @@ const ZoomSlider = (query) => {
 
   return (
     <SliderWrapperContainer>
-      {/* <OverlayContainer> */}
+      {/* <OverlayContainer>
       <ScrollDownContainer>
             <Text
               type="super-small"
@@ -42,20 +42,28 @@ const ZoomSlider = (query) => {
           </ScrollDownContainer>
       <SliderWrapper>
         {/* <WidthLimiterStyled> */}
-          <Title
+          {/* <Title
             uppercase
             as="span"
+            className="hero-title"
             type="h1-secondary-large"
             dangerouslySetInnerHTML={
               message === "1"
                 ? injectHTML(query?.query?.hero_cta?.html)
                 : injectHTML(query?.query?.hero_cta_carhunt?.html)
             }
+          ></Title> */}
+                    <Title
+            uppercase
+            as="span"
+            className="hero-title"
+            type="h1-secondary-large"
+            dangerouslySetInnerHTML={injectHTML(query?.query?.hero_cta?.html)}
           ></Title>
         {/* </WidthLimiterStyled> */}
-      </SliderWrapper>
+      {/* </SliderWrapper> */}
       {/* </OverlayContainer> */}
-      <HeroSlider
+      {/* <HeroSlider
         orientation="horizontal"
         initialSlide={1}
         onChange={(nextSlide) => setMessage(nextSlide.toString())}
@@ -71,10 +79,10 @@ const ZoomSlider = (query) => {
           autoplayDuration: 5000,
           height: "70vh",
         }}
-      >
+      > */}
 
 
-        <Slide
+        {/* <Slide
           background={{
             backgroundImage: hvitserkur,
           }}
@@ -85,7 +93,7 @@ const ZoomSlider = (query) => {
             backgroundImage: carHunting,
           }}
         />
-      </HeroSlider>
+      </HeroSlider> */}
     </SliderWrapperContainer>
   );
 };

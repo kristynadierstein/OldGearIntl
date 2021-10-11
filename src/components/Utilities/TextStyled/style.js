@@ -6,9 +6,7 @@ export const TextStyled = styled.p`
   margin-bottom: 0;
   color: ${props => (props.whiteText ? "white" : "#8c120f")};
 
-  .menu-items {
-    color: #8c120f;
-  }
+
 
   ${({ type }) => {
     switch (type) {

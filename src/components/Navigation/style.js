@@ -72,6 +72,13 @@ export const MenuItemsContainer = styled.div`
     animation: ${reveal1};
     transform-origin: right;
   }
+
+  .menu-items {
+    color: #8c120f;
+    font-weight: 900;
+    letter-spacing: .05em;
+    font-size: 1em;
+  }
 `;
 
 export const Logo = styled.div`
