@@ -6,7 +6,7 @@ import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style"
 import { OurServicesDetailsStyledContainer, ServicesContainer } from "./style"
 
 const OurServicesDetailsStyled = data => {
-  console.log("data from our service", data)
+
   const injectHTML = text => {
     return { __html: text }
   }

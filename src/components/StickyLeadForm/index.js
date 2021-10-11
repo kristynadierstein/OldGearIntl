@@ -1,7 +1,8 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
-// import {Widget, addResponseMessage, addLinkSnippet, addUserMessage, setQuickButtons} from "react-chat-widget";
-// import "react-chat-widget/lib/styles.css";
+import emailjs from "emailjs-com"
+import { Widget, addResponseMessage, addLinkSnippet, addUserMessage, setQuickButtons } from "react-chat-widget"
+import "react-chat-widget/lib/styles.css"
 import Accordion from "@material-ui/core/Accordion"
 import AccordionSummary from "@material-ui/core/AccordionSummary"
 import AccordionDetails from "@material-ui/core/AccordionDetails"
@@ -10,16 +11,23 @@ import { TitleStyled } from "../Utilities/TitleStyled/style"
 import { StickyLeadFormWrapper, StickyContent } from "./style"
 
 const StickyLeadForm = data => {
-  // useEffect(() => {
-  //   addResponseMessage("Welcome to this awesome chat!")
-  // })
 
-  // console.log("contactStickyFormQuery", data)
-  // const handleNewUserMessage = newMessage => {
-  //   console.log(`New message incoming! ${newMessage}`);
-  //   // Now send the message throught the backend API
-  // };
+  useEffect(() => {
+    addResponseMessage("Welcome to this awesome chat!")
+  })
 
+  const handleNewUserMessage = newMessage => {
+    console.log(`New message incoming! ${newMessage}`)
+    // Now send the message throught the backend API
+    emailjs.sendForm("service_a9diak7", "template_kgekjh6", newMessage, "user_lSDAaVjtFvjltbGikHHpJ").then(
+      result => {
+        console.log(result.text)
+      },
+      error => {
+        console.log(error.text)
+      }
+    )
+  }
 
   return (
     <StickyLeadFormWrapper>
@@ -38,7 +46,7 @@ const StickyLeadForm = data => {
             </TextStyled>
           </AccordionSummary>
           <AccordionDetails>
-            {/* <Widget handleNewUserMessage={handleNewUserMessage} /> */}
+            <Widget handleNewUserMessage={handleNewUserMessage} />
           </AccordionDetails>
         </Accordion>
       </StickyContent>

@@ -54,7 +54,6 @@ const Navigation = props => {
     }
   `)
 
-  console.log(data)
   const lang = useContext(LocaleContext)
   const styleContext = useContext(StyleContext)
   const [openMenu, setMenuOpen] = useState(false)

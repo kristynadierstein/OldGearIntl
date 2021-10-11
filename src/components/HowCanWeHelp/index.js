@@ -17,7 +17,6 @@ const HowCanWeHelp = (data) => {
     slidesToScroll: 1,
   };
 
-  console.log("carousel", data);
 
   return (
     <HowCanWeHelpContainerStyled>

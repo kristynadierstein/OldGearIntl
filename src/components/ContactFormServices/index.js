@@ -23,8 +23,6 @@ const ContactFormServices = (data) => {
   });
 
   const formData = getQuery(["data"], data);
-  console.log("data from contact form services", formData);
-
   const changeHandler = (e) => {
     setFormState({
       ...formState,
@@ -34,8 +32,6 @@ const ContactFormServices = (data) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log('SUBMITTED')
-
     // const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
     //   "appWAQdbhT8ASBIC2"
     // );

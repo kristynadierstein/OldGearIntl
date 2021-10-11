@@ -36,9 +36,10 @@ const Index = ({ pageContext: { locale }, location, data }) => {
     ["newsletterModule", "nodes", 0, "data"],
     data
   );
+  
 
   return (
-    <>
+    <> 
       <SEO pathname={location.pathname} locale={locale} />
       {/* <IndexWrapper id={website.skipNavId} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
 

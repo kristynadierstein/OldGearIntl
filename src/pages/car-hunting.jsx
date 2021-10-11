@@ -28,7 +28,6 @@ import { MainWrapperShort } from "../components/PagesLayout/HeroContainer/style"
 import ContactFormCarHunting from "../components/ContactFormCarhunting";
 
 const carHunting = ({ pageContext: { locale }, location, data }) => {
-  console.log("data from car-hunting", data);
   const lang = React.useContext(LocaleContext);
   const i18n = lang.i18n[lang.locale];
   const newsletterModule = getQuery(
@@ -40,12 +39,12 @@ const carHunting = ({ pageContext: { locale }, location, data }) => {
     ["allPrismicCarhuntingPage", "nodes", 0],
     data
   );
-  console.log("carHuntingPageQuery", carHuntingPageQuery);
+
   const contactStickyFormQuery = getQuery(
     ["contactStickyFormQuery", "nodes", 0, "data"],
     data
   );
-  console.log("contactStickyFormQuery", contactStickyFormQuery);
+
 
   const injectHTML = (text) => ({ __html: text });
 
@@ -71,8 +70,8 @@ const carHunting = ({ pageContext: { locale }, location, data }) => {
 
             <CarHuntingServicesContainer>
               {carHuntingPageQuery?.data?.page_html_content?.length > 0 ? (
-                carHuntingPageQuery?.data?.page_html_content.map((service) => (
-                  <Content>
+                carHuntingPageQuery?.data?.page_html_content.map((service, index) => (
+                  <Content key={index}>
                     <Title
                       type="h5"
                       as="h5"

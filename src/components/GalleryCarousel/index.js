@@ -18,7 +18,7 @@ import { TitleStyled } from "../Utilities/TitleStyled/style";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const GalleryCarousel = (data) => {
-  console.log("data from carousel", data);
+
 
   const settings = {
     dots: true,

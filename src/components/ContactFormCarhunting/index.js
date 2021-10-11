@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-import {
-  ContactFormCarHuntingContainer,
-  ContactServicesFormStyled,
-} from "./style";
-import { TextStyled } from "../Utilities/TextStyled/style";
-import { TitleStyled } from "../Utilities/TitleStyled/style";
-import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
-import { getQuery } from "../../utils/functions/getQuery";
-import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
+import React, { useState } from "react"
+import TextField from "@material-ui/core/TextField"
+import FormControl from "@material-ui/core/FormControl"
+import { ContactFormCarHuntingContainer, ContactServicesFormStyled } from "./style"
+import { TextStyled } from "../Utilities/TextStyled/style"
+import { TitleStyled } from "../Utilities/TitleStyled/style"
+import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style"
+import { getQuery } from "../../utils/functions/getQuery"
 // const Airtable = require("airtable");
 
-const ContactFormCarHunting = (data) => {
+const ContactFormCarHunting = data => {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -19,23 +16,20 @@ const ContactFormCarHunting = (data) => {
     model: "",
     destination: "",
     year: "",
-    message: "",
-  });
+    message: ""
+  })
 
-  const formData = getQuery(["data"], data);
-  console.log("data from car hunting form services", formData);
+  const formData = getQuery(["data"], data)
 
-  const changeHandler = (e) => {
+  const changeHandler = e => {
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    console.log('SUBMITTED')
-
+  const submitHandler = async e => {
+    e.preventDefault()
     // const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
     //   "appWAQdbhT8ASBIC2"
     // );
@@ -71,24 +65,20 @@ const ContactFormCarHunting = (data) => {
     //     document.querySelector(".thank-you-message").classList.add("show");
     //   }
     // );
-  };
+  }
   return (
     <ContactFormCarHuntingContainer>
       <WidthLimiterStyled>
         <TitleStyled withTitleDecoration as="h2">
           {formData?.title?.text}
         </TitleStyled>
-        <ContactServicesFormStyled
-          name="contactServices"
-          id="ServicesContact"
-          onSubmit={submitHandler}
-        >
+        <ContactServicesFormStyled name="contactServices" id="ServicesContact" onSubmit={submitHandler}>
           <FormControl>
             <TextField
               id="name"
               name="name"
               placeholder={formData?.name_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.name}
               onChange={changeHandler}
             />
@@ -98,7 +88,7 @@ const ContactFormCarHunting = (data) => {
               id="email"
               name="email"
               placeholder={formData?.email_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.email}
               onChange={changeHandler}
             />
@@ -108,7 +98,7 @@ const ContactFormCarHunting = (data) => {
               id="brand"
               name="brand"
               placeholder={formData?.brand_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.brand}
               onChange={changeHandler}
             />
@@ -118,7 +108,7 @@ const ContactFormCarHunting = (data) => {
               id="model"
               name="model"
               placeholder={formData?.model_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.model}
               onChange={changeHandler}
             />
@@ -128,7 +118,7 @@ const ContactFormCarHunting = (data) => {
               id="year"
               name="year"
               placeholder={formData?.year_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.year}
               onChange={changeHandler}
             />
@@ -138,14 +128,14 @@ const ContactFormCarHunting = (data) => {
               id="message"
               name="message"
               placeholder={formData?.message_placeholder?.text}
-              class="input-newsletter"
+              className="input-newsletter"
               value={formState.message}
               multiline
               rows={5}
               onChange={changeHandler}
             />
           </FormControl>
-          <button type="submit" id="btn-submit" class="btn-submit">
+          <button type="submit" id="btn-submit" className="btn-submit">
             {formData?.buttton_label?.text}
           </button>
         </ContactServicesFormStyled>
@@ -154,9 +144,9 @@ const ContactFormCarHunting = (data) => {
         </TextStyled>
       </WidthLimiterStyled>
     </ContactFormCarHuntingContainer>
-  );
-};
+  )
+}
 
-ContactFormCarHunting.propTypes = {};
+ContactFormCarHunting.propTypes = {}
 
-export default ContactFormCarHunting;
+export default ContactFormCarHunting

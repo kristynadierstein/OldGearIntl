@@ -73,7 +73,7 @@ const Footer = ({className}) => {
     .map((r) => r.data);
   const today = new Date();
   const year = today.getFullYear();
-  console.log("footer", footer);
+
   return (
     <StyledFooterContainer className={className}>
       <WidthLimiterStyled>

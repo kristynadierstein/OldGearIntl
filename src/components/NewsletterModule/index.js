@@ -19,13 +19,13 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 const NewsletterModule = (data) => {
   const [email, setEmail] = useState("");
-  console.log("data from newsletter", data);
+
 
   const changeHandler = (e) => setEmail(e.target.value);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("SUBMITTED")
+
 
     // const base = new Airtable({ apiKey: "keyItT7KyJ8jjlQyQ" }).base(
     //   "appWAQdbhT8ASBIC2"

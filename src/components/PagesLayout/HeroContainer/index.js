@@ -16,7 +16,7 @@ import Title from "../../Utilities/TitleStyled";
 import { WidthLimiterStyled } from "../../Utilities/WidthLimiter/style";
 
 const PagesHeroContainer = (data) => {
-  console.log(data);
+
   const injectHTML = (text) => {
     return { __html: text };
   };

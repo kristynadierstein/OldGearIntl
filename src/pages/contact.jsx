@@ -1,35 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { LocaleContext } from "../components/Layout";
-import SEO from "../components/SEO";
-import { graphql } from "gatsby";
-import { getQuery } from "../utils/functions/getQuery";
-import { Wrapper } from "../components";
-import PagesHeroContainer from "../components/PagesLayout/HeroContainer";
-import Footer from "../components/Footer/index.js";
+import React, { useContext } from "react"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
+import { LocaleContext } from "../components/Layout"
+import SEO from "../components/SEO"
+import { getQuery } from "../utils/functions/getQuery"
+import { Wrapper } from "../components"
+import PagesHeroContainer from "../components/PagesLayout/HeroContainer"
+import Footer from "../components/Footer/index.js"
 import {
-ContactPage,
+  ContactPage,
   ContactPageContainerMain,
   HeroContactContent,
   HeroImage,
   HeroContactModule
-} from "../components/PagesLayout/ContactPage/style";
+} from "../components/PagesLayout/ContactPage/style"
 import Text from "../components/Utilities/TextStyled"
 import Title from "../components/Utilities/TitleStyled"
-import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style";
+import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style"
 // import { MainWrapperShort } from "./../components/PagesLayout/HeroContainer/style";
 
 const contact = ({ pageContext: { locale }, location, data }) => {
-  const lang = React.useContext(LocaleContext);
-  const i18n = lang.i18n[lang.locale];
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const lang = useContext(LocaleContext)
+  const i18n = lang.i18n[lang.locale]
 
-  console.log(locale);
-  const contactPageQuery = getQuery(["allPrismicContactPa", "nodes", 0], data);
-  console.log("contactPageQuery", contactPageQuery);
+  const contactPageQuery = getQuery(["allPrismicContactPa", "nodes", 0], data)
 
-  const injectHTML = (text) => {
-    return { __html: text };
-  };
+  const injectHTML = text => ({ __html: text })
 
   return (
     <ContactPage>
@@ -38,36 +35,35 @@ const contact = ({ pageContext: { locale }, location, data }) => {
       {/* <MainWrapperShort> */}
       <ContactPageContainerMain>
         <WidthLimiterStyled>
-            <HeroContactModule>
-          <HeroContactContent>
-            <Title as="h1" withTitleDecoration>
-              {contactPageQuery?.data?.about_us_title?.text}
-            </Title>
-            <Text
-                  type="primary-small"
-                  as="div"
-                  dangerouslySetInnerHTML={injectHTML(contactPageQuery?.data?.about_us_content?.html)}
-                >
-                  {}
-                </Text>
-          </HeroContactContent>
-          <HeroImage>
-          <img src={contactPageQuery?.data?.hero_image?.url} alt="" />
-          </HeroImage>
+          <HeroContactModule>
+            <HeroContactContent>
+              <Title as="h1" withTitleDecoration>
+                {contactPageQuery?.data?.about_us_title?.text}
+              </Title>
+              <Text
+                type="primary-small"
+                as="div"
+                dangerouslySetInnerHTML={injectHTML(contactPageQuery?.data?.about_us_content?.html)}
+              >
+                {}
+              </Text>
+            </HeroContactContent>
+            <HeroImage>
+              <img src={contactPageQuery?.data?.hero_image?.url} alt="" />
+            </HeroImage>
           </HeroContactModule>
         </WidthLimiterStyled>
       </ContactPageContainerMain>
-        <Footer className="contact-footer"/>
-
+      <Footer className="contact-footer" />
 
       {/* </MainWrapperShort> */}
     </ContactPage>
-  );
-};
+  )
+}
 
-contact.propTypes = {};
+contact.propTypes = {}
 
-export default contact;
+export default contact
 
 export const contactQuery = graphql`
   query ContactQuery($locale: String!) {
@@ -97,4 +93,4 @@ export const contactQuery = graphql`
       }
     }
   }
-`;
+`

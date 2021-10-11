@@ -17,8 +17,6 @@ const Title = (props, ref) => {
     dangerouslySetInnerHTML
   } = props
 
-  console.log("dangerouslySetInnerHTML", dangerouslySetInnerHTML)
-
   const textProps = {
     as,
     type,

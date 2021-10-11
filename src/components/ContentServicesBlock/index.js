@@ -11,7 +11,6 @@ import { useTheme } from "@material-ui/core/styles"
 const ContentServicesBlock = ({ data }) => {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up("900"))
-  console.log('data', data)
   const injectHTML = (text) => {
     return { __html: text };
   };

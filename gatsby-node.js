@@ -23,7 +23,6 @@ exports.onCreatePage = ({ page, actions }) => {
 
     // Create the "slugs" for the pages. Unless default language, add prefix àla "/en"
     const localizedPath = locales[lang].default ? page.path : `${locales[lang].path}${page.path}`
-    console.log(page)
 
     return createPage({
       ...page,

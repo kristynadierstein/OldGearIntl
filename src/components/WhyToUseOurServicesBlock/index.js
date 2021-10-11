@@ -7,7 +7,6 @@ import LocalizedLink from "../LocalizedLink"
 import { TitleStyled } from "../Utilities/TitleStyled/style";
 
 const WhyToUseOurServicesBlock = (data) => {
-  console.log("3cardsBlockdata", data.data.card_content);
 
   const injectHTML = (text) => {
     return { __html: text };

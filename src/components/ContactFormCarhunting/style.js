@@ -31,7 +31,7 @@ align-items: center;
 
 
 .MuiFormControl-root {
-    width: 50%!important;
+    // width: 50%!important;
     min-height: 80px;
 }
 
@@ -39,11 +39,12 @@ align-items: center;
     width: 100%;
 }
 .MuiInput-root {
-    width: calc(100% - 40px);
+    // width: calc(100% - 40px);
 }
 
 
 .MuiInputBase-input {
+  min-width:300px;
   border: 0 !important;
   color: rgba(11, 31, 48, 1) !important;
   border-bottom: 2px solid rgba(11, 31, 48, 1) !important;

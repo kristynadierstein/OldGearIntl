@@ -23,8 +23,6 @@ const LocaleSwitcherFlyout = styled.div`
 `
 
 const FlyoutMenu = ({ openMenu, query, setMenuOpen }) => {
-  console.log(query)
-  console.log(openMenu)
 
   const clickHandler = () => {
     setMenuOpen(!openMenu)
