@@ -1,32 +1,21 @@
-import React, { useContext, useState } from "react";
-import PropTypes from "prop-types";
-import HeroSlider, { Slide, Nav, OverlayContainer } from "hero-slider";
-import StyleContext from "../../context/StyleProvider";
-import SliderWrapper from "./SliderWrapper";
-import Text from "../Utilities/TextStyled";
-import Title from "../Utilities/TitleStyled";
-import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style";
-import { ArrowDown } from "../Icons/ArrowDown";
-import { ScrollDownContainer, SliderWrapperContainer } from './style'
+import React, { useContext, useState } from "react"
+import PropTypes from "prop-types"
+import HeroSlider, { Slide, Nav, OverlayContainer } from "hero-slider"
+import StyleContext from "../../context/StyleProvider"
+import SliderWrapper from "./SliderWrapper"
+import Text from "../Utilities/TextStyled"
+import Title from "../Utilities/TitleStyled"
+import { WidthLimiterStyled } from "../Utilities/WidthLimiter/style"
+import { ArrowDown } from "../Icons/ArrowDown"
+import { ScrollDownContainer, SliderWrapperContainer } from "./style"
 
 const carHunting =
-  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg";
+  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625006437/OGLogistics/markus-spiske-4U3Pin0XSPE-unsplash_bmqayr.jpg"
 const hvitserkur =
-  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625008741/OGLogistics/shaah-shahidh--subrrYxv8A-unsplash_ypd042.jpg";
+  "https://res.cloudinary.com/kristynadierstein/image/upload/v1625008741/OGLogistics/shaah-shahidh--subrrYxv8A-unsplash_ypd042.jpg"
 
-const ZoomSlider = (query) => {
-  const styleContext = useContext(StyleContext);
-
-  const ctaMessage = {
-    logistics: query?.query?.hero_cta?.html,
-    carHunt: query?.query?.hero_cta_carhunt?.html,
-  };
-
-  const [message, setMessage] = useState("");
-
-  const injectHTML = (text) => {
-    return { __html: text };
-  };
+const ZoomSlider = query => {
+  const injectHTML = text => ({ __html: text })
 
   return (
     <SliderWrapperContainer>
@@ -42,7 +31,7 @@ const ZoomSlider = (query) => {
           </ScrollDownContainer>
       <SliderWrapper>
         {/* <WidthLimiterStyled> */}
-          {/* <Title
+      {/* <Title
             uppercase
             as="span"
             className="hero-title"
@@ -53,14 +42,14 @@ const ZoomSlider = (query) => {
                 : injectHTML(query?.query?.hero_cta_carhunt?.html)
             }
           ></Title> */}
-                    <Title
-            uppercase
-            as="span"
-            className="hero-title"
-            type="h1-secondary-large"
-            dangerouslySetInnerHTML={injectHTML(query?.query?.hero_cta?.html)}
-          ></Title>
-        {/* </WidthLimiterStyled> */}
+      <Title
+        uppercase
+        as="span"
+        className="hero-title"
+        type="h1-secondary-large"
+        dangerouslySetInnerHTML={injectHTML(query?.query?.hero_cta?.html)}
+      ></Title>
+      {/* </WidthLimiterStyled> */}
       {/* </SliderWrapper> */}
       {/* </OverlayContainer> */}
       {/* <HeroSlider
@@ -81,8 +70,7 @@ const ZoomSlider = (query) => {
         }}
       > */}
 
-
-        {/* <Slide
+      {/* <Slide
           background={{
             backgroundImage: hvitserkur,
           }}
@@ -95,9 +83,9 @@ const ZoomSlider = (query) => {
         />
       </HeroSlider> */}
     </SliderWrapperContainer>
-  );
-};
+  )
+}
 
-ZoomSlider.propTypes = {};
+ZoomSlider.propTypes = {}
 
-export default ZoomSlider;
+export default ZoomSlider

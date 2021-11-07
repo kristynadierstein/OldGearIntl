@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import ReactPlayer from "react-player"
 import { PagesHeroContainerStyled, HeroContentContainer, HeroContent, Container } from "../HeroContainer/style"
 import { ImageryCarHuntingContainer, CarHuntContainer } from "./style"
 import { ScrollDownContainer } from "../../HeroSlider/style"

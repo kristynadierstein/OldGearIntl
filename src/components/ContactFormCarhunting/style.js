@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const ContactFormCarHuntingContainer = styled.div`
 width: 100%;
 background-color: white;
-padding: 40px;
+// padding: 40px;
 padding-top: 80px;
 
 .thank-you-message {

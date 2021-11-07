@@ -10,10 +10,12 @@ import Footer from "../components/Footer/index.js"
 import { getQuery } from "../utils/functions/getQuery"
 import NewsletterModule from "../components/NewsletterModule"
 import HowCanWeHelp from "../components/HowCanWeHelp"
-import PagesHeroContainer from "../components/PagesLayout/HeroContainer"
+import HeroComponentLarge from "../components/HeroComponentLarge"
+// import PagesHeroContainer from "../components/PagesLayout/HeroContainer"
 import OurServicesDetailsStyled from "./../components/OurServicesDetailsStyled"
 import { MainWrapperShort } from "./../components/PagesLayout/HeroContainer/style"
 import ContactFormServices from "./../components/ContactFormServices"
+import { WidthLimiterStyled } from "../components/Utilities/WidthLimiter/style"
 
 const services = ({ pageContext: { locale }, location, data }) => {
   const lang = React.useContext(LocaleContext)
@@ -22,11 +24,16 @@ const services = ({ pageContext: { locale }, location, data }) => {
   const newsletterModule = getQuery(["newsletterModule", "nodes", 0, "data"], data)
   const reviewsCarousel = getQuery(["reviews", "nodes", 0], data)
   const servicePageQuery = getQuery(["servicePage", "nodes", 0, "data"], data)
-
+  const imageServices = 'https://res.cloudinary.com/kristynadierstein/video/upload/v1630953216/OGLogistics/IMG_4755_ppv9tu.mov'
+  const titleServices = servicePageQuery?.title?.html
+  console.log(servicePageQuery)
   return (
     <>
       <SEO pathname={location.pathname} locale={locale} />
-      <PagesHeroContainer data={servicePageQuery} />
+      <WidthLimiterStyled>
+        <HeroComponentLarge image={imageServices} title={titleServices} video/>
+      </WidthLimiterStyled>
+      {/* <PagesHeroContainer data={servicePageQuery} /> */}
       <MainWrapperShort>
         <OurServicesDetailsStyled data={servicePageQuery} />
         <ContactFormServices data={servicePageQuery} />

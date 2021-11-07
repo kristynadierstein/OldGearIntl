@@ -92,7 +92,7 @@ const Navigation = props => {
           </LocalizedLink>
         </MenuItemsContainer>
         <Logo>
-          <img src={navigationQuery.navigation_logo_red.url} alt="" style={{ width: '150px' }} />
+          <img src={navigationQuery.navigation_logo_red.url} alt="" style={{ width: '250px' }} />
         </Logo>
         <MenuItemsContainer fontColor={color}>
           <LocalizedLink to="/car-hunting">
