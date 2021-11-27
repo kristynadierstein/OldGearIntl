@@ -62,6 +62,7 @@ bundle-stats.json
 .env
 .env.development
 .env.production
+.toml
 
 cypress/screenshots
 cypress/videos
