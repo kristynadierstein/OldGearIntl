@@ -27,23 +27,23 @@ module.exports = {
     'gatsby-plugin-emotion',
     `gatsby-plugin-image`,
     'gatsby-plugin-catch-links',
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: `${process.env.AIRTABLE_API_KEY}`, // may instead specify via env, see below
-        concurrency: 5, // default, see using markdown and attachments for more information
-        tables: [
-          {
-            baseId: `${process.env.API_KEY_BASE_ID}`,
-            tableName: `OldGear_Newsletter`
-          },
-          {
-            baseId: `${process.env.API_KEY_BASE_ID}`,
-            tableName: `LeadForm`
-          }
-        ]
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-airtable`,
+    //   options: {
+    //     apiKey: `${process.env.AIRTABLE_API_KEY}`, // may instead specify via env, see below
+    //     concurrency: 5, // default, see using markdown and attachments for more information
+    //     tables: [
+    //       {
+    //         baseId: `${process.env.API_KEY_BASE_ID}`,
+    //         tableName: `OldGear_Newsletter`
+    //       },
+    //       {
+    //         baseId: `${process.env.API_KEY_BASE_ID}`,
+    //         tableName: `LeadForm`
+    //       }
+    //     ]
+    //   }
+    // },
     {
       resolve: 'gatsby-source-prismic',
       options: {
