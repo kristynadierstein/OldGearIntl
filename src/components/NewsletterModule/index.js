@@ -23,7 +23,7 @@ const NewsletterModule = data => {
   const submitHandler = async e => {
     e.preventDefault()
 
-    const ApiKey = process.env.API_KEY_AIRTABLE;
+    const ApiKey = process.env.AIRTABLE_API_KEY;
     const baseKey = process.env.API_KEY_BASE_ID;
 
     const base = new Airtable({apiKey: ApiKey}).base(baseKey);
