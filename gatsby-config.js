@@ -35,7 +35,11 @@ module.exports = {
         tables: [
           {
             baseId: `${process.env.API_KEY_BASE_ID}`,
-            tableName: `OldGear`
+            tableName: `OldGear_Newsletter`
+          },
+          {
+            baseId: `${process.env.API_KEY_BASE_ID}`,
+            tableName: `LeadForm`
           }
         ]
       }
