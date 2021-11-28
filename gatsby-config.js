@@ -34,11 +34,11 @@ module.exports = {
         concurrency: 5, // default, see using markdown and attachments for more information
         tables: [
           {
-            baseId: `${process.env.API_KEY_BASE_ID}`,
+            baseId: `${process.env.AIRTABLE_BASE_ID}`,
             tableName: `OldGear_Newsletter`
           },
           // {
-          //   baseId: `${process.env.API_KEY_BASE_ID}`,
+          //   baseId: `${process.env.AIRTABLE_BASE_ID}`,
           //   tableName: `LeadForm`
           // }
         ]
