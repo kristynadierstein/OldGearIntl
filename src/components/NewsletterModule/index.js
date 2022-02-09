@@ -22,7 +22,7 @@ const NewsletterModule = data => {
 
   const submitHandler = async e => {
     e.preventDefault()
-
+    console.log(process.env.GATSBY_AIRTABLE_API_KEY)
 
     const ApiKey = process.env.GATSBY_AIRTABLE_API_KEY;
 
